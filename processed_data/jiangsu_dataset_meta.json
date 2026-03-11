@@ -1,0 +1,91 @@
+{
+  "data_root": "/Users/tim/pythonwork/jiangsu_prj",
+  "excel_files": 10,
+  "metrics": 10,
+  "rows": 21,
+  "cols": 11,
+  "duration_sec": 4.54,
+  "errors": [],
+  "per_file": [
+    {
+      "file": "总表/事前/事前_汇总总表合集/受电计划_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "受电计划数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_汇总总表合集/正负备用空间_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "合并数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_汇总总表合集/短期系统负荷预测_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "短期负荷预测数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_江北总表合集/储能发电计划_江北分区_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "储能-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_江北总表合集/煤电发电计划_江北分区_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "煤电-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_江北总表合集/燃机固定出力总值_江北分区_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "江北分区燃机数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_江北总表合集/统调风光功率预测_太阳能_江北分区_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "江北分区风光数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_江北总表合集/统调风光功率预测_风力_江北分区_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "风力-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_江南总表合集/储能发电计划_江南分区_合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "储能发电计划数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "总表/事前/事前_江南总表合集/煤电发电计划_江南分区合并总表.xlsx",
+      "kind": "总表_事前",
+      "sheets_processed": [
+        "煤电发电计划数据"
+      ],
+      "metrics_extracted": 1
+    }
+  ]
+}

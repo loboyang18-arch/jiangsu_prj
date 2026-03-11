@@ -46,6 +46,12 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
+# 生成产物（可由脚本重新生成）
+processed_data/*.parquet
+feature_table/*.parquet
+models/*.joblib
+scripts/__pycache__/
+
 # 可选：若不想把大文件提交到 Git，可取消下面注释
 # *.zip
 # *.xlsx

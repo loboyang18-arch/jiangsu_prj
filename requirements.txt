@@ -1,0 +1,8 @@
+pandas>=1.4
+openpyxl>=3.1
+tqdm>=4.60
+numpy>=1.19
+pyarrow>=10.0
+scikit-learn>=1.0
+lightgbm>=4.0
+joblib>=1.0
