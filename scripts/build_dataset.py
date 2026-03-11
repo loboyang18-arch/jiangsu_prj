@@ -136,6 +136,7 @@ def extract_metrics_from_df(
     time_col: str,
     base_metric_parts: List[str],
     max_metrics_per_sheet: int = 30,
+    rule: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, pd.Series]:
     df = df.copy()
     # unify time
@@ -151,9 +152,22 @@ def extract_metrics_from_df(
     if not numeric_cols:
         return {}
 
-    # Prefer price/weight aggregation if we detect them
-    price_cols = [c for c in numeric_cols if PRICE_COL_RE.search(str(c))]
-    weight_cols = [c for c in numeric_cols if WEIGHT_COL_RE.search(str(c))]
+    # Decide aggregation strategy
+    agg_conf = (rule or {}).get("aggregations", {})
+    default_agg = agg_conf.get("default", "mean")
+    if default_agg not in {"mean", "sum", "last", "none"}:
+        default_agg = "mean"
+
+    # Prefer price/weight aggregation if we detect them (rule can override regex)
+    pw_conf = agg_conf.get("price_weighted_avg") if agg_conf else None
+    if pw_conf:
+        price_re = re.compile(pw_conf.get("price_col_regex", ""), re.IGNORECASE)
+        weight_re = re.compile(pw_conf.get("weight_col_regex", ""), re.IGNORECASE)
+        price_cols = [c for c in numeric_cols if price_re.search(str(c))]
+        weight_cols = [c for c in numeric_cols if weight_re.search(str(c))]
+    else:
+        price_cols = [c for c in numeric_cols if PRICE_COL_RE.search(str(c))]
+        weight_cols = [c for c in numeric_cols if WEIGHT_COL_RE.search(str(c))]
     metrics: Dict[str, pd.Series] = {}
 
     g = df.groupby("__timestamp", sort=True)
@@ -177,11 +191,18 @@ def extract_metrics_from_df(
                 mname = normalize_metric_name(base_metric_parts + ["weighted_avg", str(price_col)])
                 metrics[mname] = wavg
 
-        # also plain mean for the main price col
-        mname = normalize_metric_name(base_metric_parts + ["mean", str(price_col)])
-        metrics[mname] = g[price_col].mean()
+        # also aggregate the main price col with default_agg
+        if default_agg != "none":
+            if default_agg == "mean":
+                series = g[price_col].mean()
+            elif default_agg == "sum":
+                series = g[price_col].sum()
+            else:
+                series = g[price_col].last()
+            mname = normalize_metric_name(base_metric_parts + [default_agg, str(price_col)])
+            metrics[mname] = series
 
-    # add up to N numeric columns as mean series
+    # add up to N numeric columns as aggregated series
     used = set()
     for name in list(metrics.keys()):
         used.add(name)
@@ -190,10 +211,18 @@ def extract_metrics_from_df(
     for c in numeric_cols:
         if count >= max_metrics_per_sheet:
             break
-        mname = normalize_metric_name(base_metric_parts + ["mean", str(c)])
+        if default_agg == "none":
+            break
+        if default_agg == "mean":
+            series = g[c].mean()
+        elif default_agg == "sum":
+            series = g[c].sum()
+        else:
+            series = g[c].last()
+        mname = normalize_metric_name(base_metric_parts + [default_agg, str(c)])
         if mname in used:
             continue
-        metrics[mname] = g[c].mean()
+        metrics[mname] = series
         used.add(mname)
         count += 1
 
@@ -230,6 +259,21 @@ def load_rules(path: str) -> Dict[str, Any]:
         return json.load(r)
 
 
+def find_rule_for_sheet(rules: Dict[str, Any], rel_path: str, sheet_name: str) -> Optional[Dict[str, Any]]:
+    file_rules = rules.get("file_rules") or []
+    for rule in file_rules:
+        pat = rule.get("match_path_regex")
+        if not pat:
+            continue
+        if not re.search(pat, rel_path):
+            continue
+        sheet_pat = rule.get("sheet_regex")
+        if sheet_pat and not re.search(sheet_pat, str(sheet_name)):
+            continue
+        return rule
+    return None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Build a unified time-series dataset from heterogeneous Excel files.")
     ap.add_argument("--data-root", required=True, help="Repo root containing data folders.")
@@ -253,6 +297,12 @@ def main() -> int:
         type=int,
         default=0,
         help="每个文件最多处理多少个 sheet（0=全部）。preview 模式可用来加速。",
+    )
+    ap.add_argument(
+        "--max-metrics-per-sheet",
+        type=int,
+        default=30,
+        help="每个 sheet 最多抽取多少条指标（列）。规则文件中可单独覆盖。",
     )
     ap.add_argument(
         "--freq",
@@ -315,9 +365,15 @@ def main() -> int:
             if not tcol:
                 continue
 
+            rule = find_rule_for_sheet(rules, rel, str(sh)) if rules else None
+            # allow per-rule override of max-metrics
+            max_metrics = args.max_metrics_per_sheet
+            if rule and isinstance(rule.get("max_metrics_per_sheet"), int):
+                max_metrics = int(rule["max_metrics_per_sheet"])
+
             dims = parse_dimensions(rel)
             base_parts = [kind, dims.get("phase", ""), dims.get("region", ""), dims.get("family", ""), os.path.basename(rel), str(sh)]
-            ms = extract_metrics_from_df(df, tcol, base_parts)
+            ms = extract_metrics_from_df(df, tcol, base_parts, max_metrics_per_sheet=max_metrics, rule=rule)
             for k, s in ms.items():
                 if k in metric_series:
                     # merge by preferring existing; if collision, suffix

@@ -7,6 +7,7 @@
       "mode": "extract_numeric",
       "time_column_regex": "(时间|date|time)",
       "exclude_columns_regex": "(节点|node|ID|编号)",
+      "max_metrics_per_sheet": 50,
       "aggregations": {
         "default": "mean",
         "price_weighted_avg": {
