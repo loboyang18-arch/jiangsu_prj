@@ -4,7 +4,104 @@
   "metrics": 10,
   "rows": 21,
   "cols": 11,
-  "duration_sec": 4.54,
+  "duration_sec": 4.65,
+  "mode": "preview",
+  "preview_rows": 2000,
+  "max_sheets_per_file": 2,
+  "freq": "1D",
+  "resample_agg": "mean",
+  "metric_meta": {
+    "xlsx__mean__MW": {
+      "source_file": "总表/事前/事前_汇总总表合集/受电计划_合并总表.xlsx",
+      "sheet": "受电计划数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "汇总",
+      "family": "受电"
+    },
+    "xlsx__mean__MW__v2": {
+      "source_file": "总表/事前/事前_汇总总表合集/正负备用空间_合并总表.xlsx",
+      "sheet": "合并数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "汇总",
+      "family": ""
+    },
+    "xlsx__mean__MW__v3": {
+      "source_file": "总表/事前/事前_汇总总表合集/短期系统负荷预测_合并总表.xlsx",
+      "sheet": "短期负荷预测数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "汇总",
+      "family": "负荷"
+    },
+    "xlsx__mean__MW__v4": {
+      "source_file": "总表/事前/事前_江北总表合集/储能发电计划_江北分区_合并总表.xlsx",
+      "sheet": "储能-江北分区数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "江北",
+      "family": "储能"
+    },
+    "xlsx__mean__MW__v5": {
+      "source_file": "总表/事前/事前_江北总表合集/煤电发电计划_江北分区_合并总表.xlsx",
+      "sheet": "煤电-江北分区数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "江北",
+      "family": "煤电"
+    },
+    "xlsx__mean__MW__v6": {
+      "source_file": "总表/事前/事前_江北总表合集/燃机固定出力总值_江北分区_合并总表.xlsx",
+      "sheet": "江北分区燃机数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "江北",
+      "family": "燃机"
+    },
+    "xlsx__mean__MW__v7": {
+      "source_file": "总表/事前/事前_江北总表合集/统调风光功率预测_太阳能_江北分区_合并总表.xlsx",
+      "sheet": "江北分区风光数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "江北",
+      "family": "光伏"
+    },
+    "xlsx__mean__MW__v8": {
+      "source_file": "总表/事前/事前_江北总表合集/统调风光功率预测_风力_江北分区_合并总表.xlsx",
+      "sheet": "风力-江北分区数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "江北",
+      "family": "风电"
+    },
+    "xlsx__mean__MW__v9": {
+      "source_file": "总表/事前/事前_江南总表合集/储能发电计划_江南分区_合并总表.xlsx",
+      "sheet": "储能发电计划数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "江南",
+      "family": "储能"
+    },
+    "xlsx__mean__MW__v10": {
+      "source_file": "总表/事前/事前_江南总表合集/煤电发电计划_江南分区合并总表.xlsx",
+      "sheet": "煤电发电计划数据",
+      "time_col": "查询日期",
+      "kind": "总表_事前",
+      "phase": "事前",
+      "region": "江南",
+      "family": "煤电"
+    }
+  },
   "errors": [],
   "per_file": [
     {

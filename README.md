@@ -40,7 +40,9 @@ python scripts/scan_excel_dictionary.py \
 python scripts/build_dataset.py \
   --data-root "/Users/tim/pythonwork/jiangsu_prj" \
   --output-parquet "/Users/tim/pythonwork/jiangsu_prj/processed_data/jiangsu_dataset.parquet" \
-  --output-meta "/Users/tim/pythonwork/jiangsu_prj/processed_data/jiangsu_dataset_meta.json"
+  --output-meta "/Users/tim/pythonwork/jiangsu_prj/processed_data/jiangsu_dataset_meta.json" \
+  --mode full \
+  --freq 1D
 ```
 
 ### ③ 特征工程 + 训练 + 评估（baseline）
@@ -48,12 +50,20 @@ python scripts/build_dataset.py \
 ```bash
 python scripts/feature_engineering.py \
   --input-parquet "/Users/tim/pythonwork/jiangsu_prj/processed_data/jiangsu_dataset.parquet" \
-  --output-parquet "/Users/tim/pythonwork/jiangsu_prj/feature_table/features.parquet"
+  --output-parquet "/Users/tim/pythonwork/jiangsu_prj/feature_table/features.parquet" \
+  --freq 1D \
+  --horizon 1
 
 python scripts/train_baseline.py \
   --features-parquet "/Users/tim/pythonwork/jiangsu_prj/feature_table/features.parquet" \
   --model-dir "/Users/tim/pythonwork/jiangsu_prj/models"
 ```
+
+### 重要说明（严肃实验建议遵守）
+
+- **统一频率**：务必在 `build_dataset.py` 使用 `--freq` 固化输出频率（如 `15min/1H/1D`），并在 `feature_engineering.py` 使用相同 `--freq`。
+- **preview vs full**：`build_dataset.py` 的 `--mode preview` 仅用于调试抽样；正式实验使用 `--mode full`。
+- **规则配置化**：如需把“抽取哪些 sheet/列、如何聚合”固化到可审计规则，参考 `scripts/dataset_rules.example.json` 并通过 `build_dataset.py --rules <path>` 接入。
 
 ## 推送至 GitHub 私有仓库
 

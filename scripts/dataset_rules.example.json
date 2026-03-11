@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "notes": "示例规则：用于把“抽取哪些sheet/列、如何聚合、如何命名指标”从代码里移出。",
+  "file_rules": [
+    {
+      "match_path_regex": "江苏/电价数据/25年日前-实时价格/.*\\.xlsx$",
+      "mode": "extract_numeric",
+      "time_column_regex": "(时间|date|time)",
+      "exclude_columns_regex": "(节点|node|ID|编号)",
+      "aggregations": {
+        "default": "mean",
+        "price_weighted_avg": {
+          "price_col_regex": "(电价|LMP|出清价)",
+          "weight_col_regex": "(电量|成交电量|MW|MWh)"
+        }
+      }
+    }
+  ]
+}
+

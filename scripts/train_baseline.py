@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 from lightgbm import LGBMRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error
+from lightgbm import early_stopping, log_evaluation
 
 
 @dataclass
@@ -41,6 +42,15 @@ def evaluate(y_true: np.ndarray, y_pred: np.ndarray) -> Metrics:
         rmse=float(mean_squared_error(y_true, y_pred, squared=False)),
         mape=mape(y_true, y_pred),
     )
+
+def naive_baselines(y: np.ndarray) -> Dict[str, np.ndarray]:
+    # persistence baseline: y_hat(t) = y(t-1)
+    # caller must align properly; we keep simple here: predict last known value for each point
+    if len(y) == 0:
+        return {}
+    return {
+        "naive_last": np.r_[np.nan, y[:-1]],
+    }
 
 
 def main() -> int:
@@ -96,7 +106,7 @@ def main() -> int:
         y_train,
         eval_set=[(X_val, y_val)],
         eval_metric="l1",
-        callbacks=[],
+        callbacks=[early_stopping(stopping_rounds=100), log_evaluation(period=50)],
     )
 
     pred_val = model.predict(X_val)
@@ -104,6 +114,13 @@ def main() -> int:
 
     val_metrics = evaluate(y_val, pred_val)
     test_metrics = evaluate(y_test, pred_test)
+
+    # naive baseline on val/test (align by using previous actual within each split)
+    # For time-ordered splits, this is a fair minimal baseline.
+    naive_val = naive_baselines(y_val).get("naive_last")
+    naive_test = naive_baselines(y_test).get("naive_last")
+    naive_val_metrics = evaluate(y_val[1:], naive_val[1:]) if naive_val is not None and len(y_val) > 1 else None
+    naive_test_metrics = evaluate(y_test[1:], naive_test[1:]) if naive_test is not None and len(y_test) > 1 else None
 
     model_path = os.path.join(model_dir, "baseline_lgbm.joblib")
     joblib.dump(
@@ -125,6 +142,8 @@ def main() -> int:
         "test_rows": int(test_df.shape[0]),
         "val": asdict(val_metrics),
         "test": asdict(test_metrics),
+        "val_naive_last": asdict(naive_val_metrics) if naive_val_metrics else None,
+        "test_naive_last": asdict(naive_test_metrics) if naive_test_metrics else None,
         "feature_count": int(X_train.shape[1]),
     }
     with open(metrics_path, "w", encoding="utf-8") as w:

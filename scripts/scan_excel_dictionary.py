@@ -94,7 +94,8 @@ def main() -> int:
                     "time_start": time_sum.start if time_sum else "",
                     "time_end": time_sum.end if time_sum else "",
                     "time_granularity": time_sum.granularity if time_sum else "",
-                    "time_coverage": f"{time_sum.coverage:.3f}" if time_sum else "",
+                    "time_coverage_total": f"{time_sum.coverage_total:.3f}" if time_sum else "",
+                    "time_parse_rate_non_null": f"{time_sum.parse_rate_non_null:.3f}" if time_sum else "",
                     "column": "",
                     "dtype": "",
                     "non_null": "",
@@ -133,7 +134,8 @@ def main() -> int:
         "time_start",
         "time_end",
         "time_granularity",
-        "time_coverage",
+        "time_coverage_total",
+        "time_parse_rate_non_null",
         "column",
         "dtype",
         "non_null",
@@ -166,7 +168,7 @@ def main() -> int:
 
         # build a compact per-sheet table (from sheet_summary rows)
         w.write("## Sheet 级摘要（时间范围/粒度优先来自表内识别）\n\n")
-        w.write("|文件|sheet|时间列|时间范围|粒度|覆盖率|\n|---|---|---|---|---|---:|\n")
+        w.write("|文件|sheet|时间列|时间范围|粒度|coverage_total|parse_rate_non_null|\n|---|---|---|---|---|---:|---:|\n")
         for r in rows:
             if r["row_type"] != "sheet_summary":
                 continue
@@ -174,7 +176,7 @@ def main() -> int:
             if r["time_start"] and r["time_end"]:
                 tr = f"{r['time_start'][:10]} ~ {r['time_end'][:10]}"
             w.write(
-                f"|`{r['file']}`|{r['sheet']}|{r['time_column']}|{tr}|{r['time_granularity']}|{r['time_coverage']}|\n"
+                f"|`{r['file']}`|{r['sheet']}|{r['time_column']}|{tr}|{r['time_granularity']}|{r['time_coverage_total']}|{r['time_parse_rate_non_null']}|\n"
             )
 
         w.write("\n## 字段明细\n\n")

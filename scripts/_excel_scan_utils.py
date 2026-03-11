@@ -18,7 +18,8 @@ class TimeSummary:
     start: Optional[str]
     end: Optional[str]
     granularity: str
-    coverage: float  # fraction of non-null parseable as datetime
+    parse_rate_non_null: float  # parseable / non-null
+    coverage_total: float  # parseable / total rows
 
 
 def _safe_to_datetime(s: pd.Series) -> pd.Series:
@@ -56,6 +57,7 @@ def infer_time_summary(df: pd.DataFrame) -> Optional[TimeSummary]:
         ser = df[col]
         if ser is None:
             continue
+        total_rows = int(len(ser))
         non_null = ser.dropna()
         if non_null.empty:
             continue
@@ -65,7 +67,8 @@ def infer_time_summary(df: pd.DataFrame) -> Optional[TimeSummary]:
         if ok.empty:
             continue
 
-        coverage = float(len(ok)) / float(len(non_null))
+        parse_rate_non_null = float(len(ok)) / float(len(non_null))
+        coverage_total = float(len(ok)) / float(total_rows) if total_rows else 0.0
         start = ok.min()
         end = ok.max()
 
@@ -94,11 +97,12 @@ def infer_time_summary(df: pd.DataFrame) -> Optional[TimeSummary]:
             start=start.isoformat() if hasattr(start, "isoformat") else str(start),
             end=end.isoformat() if hasattr(end, "isoformat") else str(end),
             granularity=gran,
-            coverage=coverage,
+            parse_rate_non_null=parse_rate_non_null,
+            coverage_total=coverage_total,
         )
 
         # prefer higher coverage, then earlier candidate
-        if best is None or ts.coverage > best.coverage:
+        if best is None or (ts.coverage_total, ts.parse_rate_non_null) > (best.coverage_total, best.parse_rate_non_null):
             best = ts
 
     return best
@@ -145,8 +149,15 @@ def summarize_columns(df: pd.DataFrame, max_unique: int = 30) -> List[Dict[str, 
 def read_excel_preview(path: str, sheet_name: str, nrows: int = 300) -> pd.DataFrame:
     # Many files in this repo use .xls extension but are actually OOXML;
     # let pandas choose engine first, then fall back to openpyxl explicitly.
+    # Engine priority:
+    # - calamine: supports xls/xlsx/xlsb broadly and is fast (Rust-backed)
+    # - default: let pandas decide
+    # - openpyxl: fallback for OOXML
     try:
-        return pd.read_excel(path, sheet_name=sheet_name, nrows=nrows)
+        return pd.read_excel(path, sheet_name=sheet_name, nrows=nrows, engine="calamine")
     except Exception:
-        return pd.read_excel(path, sheet_name=sheet_name, nrows=nrows, engine="openpyxl")
+        try:
+            return pd.read_excel(path, sheet_name=sheet_name, nrows=nrows)
+        except Exception:
+            return pd.read_excel(path, sheet_name=sheet_name, nrows=nrows, engine="openpyxl")
 
