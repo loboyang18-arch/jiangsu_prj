@@ -1,10 +1,1 @@
-# 排除大数据目录和可再生成产物，使 GitHub Download ZIP 只包含代码与脚本
-
-总表/** export-ignore
-江苏/** export-ignore
-processed_data/** export-ignore
-feature_table/** export-ignore
-models/** export-ignore
-
-# 如需在 ZIP 中保留报告，可删掉下一行
-report/** export-ignore
+# Download ZIP 不再排除数据目录；如需排除可重新添加 export-ignore 规则
