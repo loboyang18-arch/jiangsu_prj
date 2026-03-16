@@ -1,3 +1,11 @@
+"""
+基于特征工程输出的 parquet 训练 LightGBM 回归基线，并输出模型与验证/测试集指标。
+
+- 输入：feature_engineering.py 生成的特征 parquet（含 timestamp、目标列及特征列）。
+- 按时间顺序划分 train/val/test（默认 0.7/0.15/0.15），在 val 上早停，在 test 上报告最终指标。
+- 输出：model_dir 下的 baseline_lgbm.joblib、metrics.json（含 val/test 及 naive_last 基线对比）。
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -16,17 +24,21 @@ from lightgbm import early_stopping, log_evaluation
 
 @dataclass
 class Metrics:
+    """回归评估指标：MAE、RMSE、MAPE。"""
+
     mae: float
     rmse: float
     mape: float
 
 
 def mape(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """计算 MAPE；真实值接近 0 的样本在分母中置为 nan 后取 nanmean。"""
     denom = np.where(np.abs(y_true) < 1e-9, np.nan, np.abs(y_true))
     return float(np.nanmean(np.abs((y_true - y_pred) / denom)))
 
 
 def time_split(df: pd.DataFrame, train_frac: float = 0.7, val_frac: float = 0.15) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """按时间顺序将 df 切分为 train / val / test 三份，比例由 train_frac、val_frac 决定，剩余为 test。"""
     n = len(df)
     n_train = int(n * train_frac)
     n_val = int(n * val_frac)
@@ -37,6 +49,7 @@ def time_split(df: pd.DataFrame, train_frac: float = 0.7, val_frac: float = 0.15
 
 
 def evaluate(y_true: np.ndarray, y_pred: np.ndarray) -> Metrics:
+    """计算 MAE、RMSE、MAPE，返回 Metrics 实例。"""
     return Metrics(
         mae=float(mean_absolute_error(y_true, y_pred)),
         rmse=float(mean_squared_error(y_true, y_pred, squared=False)),
@@ -44,7 +57,7 @@ def evaluate(y_true: np.ndarray, y_pred: np.ndarray) -> Metrics:
     )
 
 def naive_baselines(y: np.ndarray) -> Dict[str, np.ndarray]:
-    # persistence baseline: y_hat(t) = y(t-1)
+    """持久化基线：y_hat(t) = y(t-1)；返回键 'naive_last'，首点为 nan，调用方需对齐索引。"""
     # caller must align properly; we keep simple here: predict last known value for each point
     if len(y) == 0:
         return {}
@@ -54,6 +67,7 @@ def naive_baselines(y: np.ndarray) -> Dict[str, np.ndarray]:
 
 
 def main() -> int:
+    """解析参数、读特征表、时间划分、训练 LightGBM、保存模型与 metrics.json，返回 0。"""
     ap = argparse.ArgumentParser(description="Train a baseline LightGBM regressor on engineered features.")
     ap.add_argument("--features-parquet", required=True, help="Input features parquet from feature_engineering.py")
     ap.add_argument("--model-dir", required=True, help="Output directory for model and metrics")

@@ -1,3 +1,10 @@
+"""
+Excel 扫描共用工具：时间列识别、时间范围/粒度推断、列摘要、安全读取。
+
+供 scan_excel_dictionary.py、build_dataset.py 等脚本复用。
+不依赖项目业务配置，仅提供通用的 DataFrame 分析与 Excel 读取封装。
+"""
+
 from __future__ import annotations
 
 import re
@@ -9,20 +16,23 @@ import numpy as np
 import pandas as pd
 
 
+# 用于识别“可能是时间列”的列名正则（中英文常见命名）
 TIME_COL_NAME_RE = re.compile(r"(date|time|日期|时间|交易日|运行日|统计日|查询日期)", re.IGNORECASE)
 
 
 @dataclass(frozen=True)
 class TimeSummary:
+    """单列时间解析结果：列名、起止时间、粒度、解析率与总行覆盖率。"""
     time_column: str
     start: Optional[str]
     end: Optional[str]
     granularity: str
-    parse_rate_non_null: float  # parseable / non-null
-    coverage_total: float  # parseable / total rows
+    parse_rate_non_null: float  # 可解析数 / 非空数
+    coverage_total: float       # 可解析数 / 总行数
 
 
 def _safe_to_datetime(s: pd.Series) -> pd.Series:
+    """将序列转为 datetime，解析失败处为 NaT，不抛异常。"""
     try:
         return pd.to_datetime(s, errors="coerce")
     except Exception:
@@ -30,6 +40,11 @@ def _safe_to_datetime(s: pd.Series) -> pd.Series:
 
 
 def infer_time_summary(df: pd.DataFrame) -> Optional[TimeSummary]:
+    """
+    从表中识别最佳时间列并返回 TimeSummary。
+    候选列：列名匹配 TIME_COL_NAME_RE，或（无匹配时）首列。
+    粒度根据相邻时间差中位数推断（15min/1H/1D 等）；择优依据 coverage_total、parse_rate_non_null。
+    """
     if df is None or df.empty:
         return None
 
@@ -109,6 +124,10 @@ def infer_time_summary(df: pd.DataFrame) -> Optional[TimeSummary]:
 
 
 def summarize_columns(df: pd.DataFrame, max_unique: int = 30) -> List[Dict[str, str]]:
+    """
+    为每列生成摘要：dtype、non_null、unique、example、top_values（仅当唯一值数<=max_unique 时填充）。
+    返回字典列表，供 data_dictionary 等使用。
+    """
     if df is None or df.empty:
         return []
 
@@ -147,12 +166,10 @@ def summarize_columns(df: pd.DataFrame, max_unique: int = 30) -> List[Dict[str, 
 
 
 def read_excel_preview(path: str, sheet_name: str, nrows: int = 300) -> pd.DataFrame:
-    # Many files in this repo use .xls extension but are actually OOXML;
-    # let pandas choose engine first, then fall back to openpyxl explicitly.
-    # Engine priority:
-    # - calamine: supports xls/xlsx/xlsb broadly and is fast (Rust-backed)
-    # - default: let pandas decide
-    # - openpyxl: fallback for OOXML
+    """
+    读取指定 sheet 的前 nrows 行。Engine 优先级：calamine -> pandas 默认 -> openpyxl，
+    以兼容 .xls 与 .xlsx（含扩展名为 .xls 实为 OOXML 的情况）。
+    """
     try:
         return pd.read_excel(path, sheet_name=sheet_name, nrows=nrows, engine="calamine")
     except Exception:

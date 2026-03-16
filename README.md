@@ -1,20 +1,21 @@
 # 江苏项目 (jiangsu_prj)
 
-项目说明与数据目录。
+项目说明与数据目录。数据以 15 分钟粒度（96 点/日）为主，入库与建模方案见 [report/总表数据入库方案.md](report/总表数据入库方案.md)。
 
-## 目录结构
+## 当前工程结构（整理后）
 
-- **总表/** - 总表相关（事前 / 事后）
-- **江苏/** - 江苏电价与电网数据
-- **scripts/** - 数据字典 / 数据集构建 / 训练评估脚本
-- **processed_data/** - 统一数据集产出（parquet 等）
-- **feature_table/** - 特征表产出（parquet 等）
-- **models/** - 训练产物（模型文件、评估结果）
-- **report/** - 自动生成的统计与汇报文档
+| 目录 | 说明 |
+|------|------|
+| **总表/** | 总表数据（事前/事后合并总表） |
+| **江苏/** | 江苏电价与电网数据 |
+| **scripts/** | 抽取、入库、审计、训练脚本（详见 [scripts/README.md](scripts/README.md)） |
+| **warehouse/** | **主库产出**：Stage/DWD/dim/audit（Parquet），见 [warehouse/README.md](warehouse/README.md) |
+| **report/** | 方案与报告：入库方案、数据分析报告、子文件夹梳理 01～09、审计报告 |
+| **processed_data/** | 可选：build_dataset 直出 parquet（非 warehouse 流程时使用） |
+| **feature_table/** | 可选：特征工程产出 |
+| **models/** | 可选：训练产物（.joblib、评估结果） |
 
 ## 使用说明
-
-克隆后按需使用各目录下的数据与脚本。
 
 ### 安装依赖
 
@@ -22,7 +23,20 @@
 pip install -r requirements.txt
 ```
 
-### ① 生成字段字典（data_dictionary）
+### 推荐主流程：总表入库（warehouse）
+
+按 [report/总表数据入库方案.md](report/总表数据入库方案.md) 执行，默认主窗 **2025-09-01～2025-12-31**：
+
+```bash
+# 仅总表：Stage → DWD / dim / audit
+python scripts/build_parquet_warehouse.py --plan scripts/warehouse_plan.json --mode full --total-only
+```
+
+产出：`warehouse/stage/`、`warehouse/dwd/`、`warehouse/dim/`、`warehouse/audit/`。
+
+### ① 生成字段字典（可选，可复现）
+
+运行后生成 `report/data_dictionary.md`、`report/data_dictionary.csv`。
 
 ```bash
 python scripts/scan_excel_dictionary.py \
@@ -30,11 +44,20 @@ python scripts/scan_excel_dictionary.py \
   --output-dir "/Users/tim/pythonwork/jiangsu_prj/report"
 ```
 
-输出：
-- `report/data_dictionary.md`
-- `report/data_dictionary.csv`
+### ①’ 原始数据质量审计（可选，可复现）
 
-### ② 构建统一数据集（parquet）
+只读扫描 Excel，输出 sheet/列级统计与日期缺口；需时再跑即可复现报告：
+
+```bash
+python scripts/raw_data_quality_audit.py \
+  --data-root "/Users/tim/pythonwork/jiangsu_prj" \
+  --output-dir "/Users/tim/pythonwork/jiangsu_prj/report" \
+  --sample-files-per-group 0
+```
+
+输出：`raw_data_quality_summary.csv`、`raw_data_quality_details.csv`、`raw_data_gap_report.csv`、`raw_data_quality_report.json`、`raw_data_quality_report.md`。可选依赖 `tabulate` 以美化 Markdown 表格。
+
+### ② 构建统一数据集（parquet，build_dataset 直出）
 
 ```bash
 python scripts/build_dataset.py \
@@ -59,11 +82,22 @@ python scripts/train_baseline.py \
   --model-dir "/Users/tim/pythonwork/jiangsu_prj/models"
 ```
 
-### 重要说明（严肃实验建议遵守）
+### 重要说明
 
-- **统一频率**：务必在 `build_dataset.py` 使用 `--freq` 固化输出频率（如 `15min/1H/1D`），并在 `feature_engineering.py` 使用相同 `--freq`。
-- **preview vs full**：`build_dataset.py` 的 `--mode preview` 仅用于调试抽样；正式实验使用 `--mode full`。
-- **规则配置化**：如需把“抽取哪些 sheet/列、如何聚合”固化到可审计规则，参考 `scripts/dataset_rules.example.json` 并通过 `build_dataset.py --rules <path>` 接入。
+- **主库优先**：正式入库与建模以 **warehouse** + [总表数据入库方案](report/总表数据入库方案.md) 为准；`build_dataset` 直出可用于单次探索或非 15min 频率。
+- **统一频率**：`build_dataset.py` 与 `feature_engineering.py` 需一致 `--freq`（如 `15min`/`1D`）。
+- **规则配置**：参考 `scripts/dataset_rules.example.json`，`build_dataset.py --rules <path>` 接入。
+
+## 整理说明（已删除的临时/冗余文件）
+
+以下已删除，便于后续只维护必要文件；需要时可由脚本重新生成：
+
+- **report/**：`数据汇总报告_*.md`、`总表与江苏数据梳理.md`、`data_folder_structure.md`、`raw_data_inventory_and_modeling.md`、`file_index.csv`、`merged_tables_time_range.csv`、`raw_data_quality_*`、`data_dictionary.*`（由 `scan_excel_dictionary.py` / `raw_data_quality_audit.py` 复现）。
+- **processed_data/**：`jiangsu_dataset_meta.json`（由 `build_dataset.py` 复现）。
+- **feature_table/**：`features_meta.json`（由 `feature_engineering.py` 复现）。
+- **models/**：`metrics.json`（由 `train_baseline.py` 复现）。
+
+**保留的 report 核心文档**：`总表数据入库方案.md`、`数据分析报告.md`、`总表入库审计报告.md`、`子文件夹梳理/01～09`。
 
 ## 推送至 GitHub 私有仓库
 

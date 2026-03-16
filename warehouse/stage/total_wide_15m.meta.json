@@ -1,0 +1,740 @@
+{
+  "data_root": "/Users/tim/pythonwork/jiangsu_prj/总表",
+  "excel_files": 27,
+  "metrics": 46,
+  "rows": 23040,
+  "cols": 47,
+  "duration_sec": 20.21,
+  "mode": "full",
+  "preview_rows": null,
+  "max_sheets_per_file": 0,
+  "freq": "15min",
+  "resample_agg": "mean",
+  "metric_meta": {
+    "其他__事前__汇总__受电__受电计划_合并总表_xlsx__受电计划数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_汇总总表合集/受电计划_合并总表.xlsx",
+      "sheet": "受电计划数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力（MW）",
+      "phase": "事前",
+      "region": "汇总",
+      "family": "受电"
+    },
+    "其他__事前__汇总__受电__受电计划_合并总表_xlsx__受电计划数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_汇总总表合集/受电计划_合并总表.xlsx",
+      "sheet": "受电计划数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力（MW）",
+      "phase": "事前",
+      "region": "汇总",
+      "family": "受电"
+    },
+    "其他__事前__汇总__正负备用空间_合并总表_xlsx__合并数据__mean__正备用_MW": {
+      "source_file": "事前/事前_汇总总表合集/正负备用空间_合并总表.xlsx",
+      "sheet": "合并数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "正备用(MW)",
+      "phase": "事前",
+      "region": "汇总",
+      "family": ""
+    },
+    "其他__事前__汇总__正负备用空间_合并总表_xlsx__合并数据__mean__负备用_MW": {
+      "source_file": "事前/事前_汇总总表合集/正负备用空间_合并总表.xlsx",
+      "sheet": "合并数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "负备用(MW)",
+      "phase": "事前",
+      "region": "汇总",
+      "family": ""
+    },
+    "其他__事前__汇总__负荷__短期系统负荷预测_合并总表_xlsx__短期负荷预测数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_汇总总表合集/短期系统负荷预测_合并总表.xlsx",
+      "sheet": "短期负荷预测数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力（MW）",
+      "phase": "事前",
+      "region": "汇总",
+      "family": "负荷"
+    },
+    "其他__事前__汇总__负荷__短期系统负荷预测_合并总表_xlsx__短期负荷预测数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_汇总总表合集/短期系统负荷预测_合并总表.xlsx",
+      "sheet": "短期负荷预测数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力（MW）",
+      "phase": "事前",
+      "region": "汇总",
+      "family": "负荷"
+    },
+    "其他__事前__江北__储能__储能发电计划_江北分区_合并总表_xlsx__储能_江北分区数据__mean__预发布数据_MW": {
+      "source_file": "事前/事前_江北总表合集/储能发电计划_江北分区_合并总表.xlsx",
+      "sheet": "储能-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "预发布数据（MW）",
+      "phase": "事前",
+      "region": "江北",
+      "family": "储能"
+    },
+    "其他__事前__江北__储能__储能发电计划_江北分区_合并总表_xlsx__储能_江北分区数据__mean__终发布数据_MW": {
+      "source_file": "事前/事前_江北总表合集/储能发电计划_江北分区_合并总表.xlsx",
+      "sheet": "储能-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "终发布数据（MW）",
+      "phase": "事前",
+      "region": "江北",
+      "family": "储能"
+    },
+    "其他__事前__江北__煤电__煤电发电计划_江北分区_合并总表_xlsx__煤电_江北分区数据__mean__预发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/煤电发电计划_江北分区_合并总表.xlsx",
+      "sheet": "煤电-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "预发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "煤电"
+    },
+    "其他__事前__江北__煤电__煤电发电计划_江北分区_合并总表_xlsx__煤电_江北分区数据__mean__终发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/煤电发电计划_江北分区_合并总表.xlsx",
+      "sheet": "煤电-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "终发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "煤电"
+    },
+    "其他__事前__江北__燃机__燃机固定出力总值_江北分区_合并总表_xlsx__江北分区燃机数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/燃机固定出力总值_江北分区_合并总表.xlsx",
+      "sheet": "江北分区燃机数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "燃机"
+    },
+    "其他__事前__江北__燃机__燃机固定出力总值_江北分区_合并总表_xlsx__江北分区燃机数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/燃机固定出力总值_江北分区_合并总表.xlsx",
+      "sheet": "江北分区燃机数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "燃机"
+    },
+    "其他__事前__江北__光伏__统调风光功率预测_太阳能_江北分区_合并总表_xlsx__江北分区风光数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/统调风光功率预测_太阳能_江北分区_合并总表.xlsx",
+      "sheet": "江北分区风光数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "光伏"
+    },
+    "其他__事前__江北__光伏__统调风光功率预测_太阳能_江北分区_合并总表_xlsx__江北分区风光数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/统调风光功率预测_太阳能_江北分区_合并总表.xlsx",
+      "sheet": "江北分区风光数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "光伏"
+    },
+    "其他__事前__江北__风电__统调风光功率预测_风力_江北分区_合并总表_xlsx__风力_江北分区数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/统调风光功率预测_风力_江北分区_合并总表.xlsx",
+      "sheet": "风力-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "风电"
+    },
+    "其他__事前__江北__风电__统调风光功率预测_风力_江北分区_合并总表_xlsx__风力_江北分区数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_江北总表合集/统调风光功率预测_风力_江北分区_合并总表.xlsx",
+      "sheet": "风力-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力(MW)",
+      "phase": "事前",
+      "region": "江北",
+      "family": "风电"
+    },
+    "其他__事前__江南__储能__储能发电计划_江南分区_合并总表_xlsx__储能发电计划数据__mean__预发布数据_MW": {
+      "source_file": "事前/事前_江南总表合集/储能发电计划_江南分区_合并总表.xlsx",
+      "sheet": "储能发电计划数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "预发布数据（MW）",
+      "phase": "事前",
+      "region": "江南",
+      "family": "储能"
+    },
+    "其他__事前__江南__储能__储能发电计划_江南分区_合并总表_xlsx__储能发电计划数据__mean__终发布数据_MW": {
+      "source_file": "事前/事前_江南总表合集/储能发电计划_江南分区_合并总表.xlsx",
+      "sheet": "储能发电计划数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "终发布数据（MW）",
+      "phase": "事前",
+      "region": "江南",
+      "family": "储能"
+    },
+    "其他__事前__江南__煤电__煤电发电计划_江南分区合并总表_xlsx__煤电发电计划数据__mean__预发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/煤电发电计划_江南分区合并总表.xlsx",
+      "sheet": "煤电发电计划数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "预发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "煤电"
+    },
+    "其他__事前__江南__煤电__煤电发电计划_江南分区合并总表_xlsx__煤电发电计划数据__mean__终发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/煤电发电计划_江南分区合并总表.xlsx",
+      "sheet": "煤电发电计划数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "终发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "煤电"
+    },
+    "其他__事前__江南__燃机__燃机固定出力总值_江南分区_合并总表_xlsx__燃机固定出力数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/燃机固定出力总值_江南分区_合并总表.xlsx",
+      "sheet": "燃机固定出力数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "燃机"
+    },
+    "其他__事前__江南__燃机__燃机固定出力总值_江南分区_合并总表_xlsx__燃机固定出力数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/燃机固定出力总值_江南分区_合并总表.xlsx",
+      "sheet": "燃机固定出力数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "燃机"
+    },
+    "其他__事前__江南__光伏__统调风光功率预测_太阳能_江南分区_合并总表_xlsx__统调风光功率数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/统调风光功率预测_太阳能_江南分区_合并总表.xlsx",
+      "sheet": "统调风光功率数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "光伏"
+    },
+    "其他__事前__江南__光伏__统调风光功率预测_太阳能_江南分区_合并总表_xlsx__统调风光功率数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/统调风光功率预测_太阳能_江南分区_合并总表.xlsx",
+      "sheet": "统调风光功率数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "光伏"
+    },
+    "其他__事前__江南__风电__统调风光功率预测_风力_江南分区_合并总表_xlsx__风力功率预测数据__mean__边界信息发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/统调风光功率预测_风力_江南分区_合并总表.xlsx",
+      "sheet": "风力功率预测数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "边界信息发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "风电"
+    },
+    "其他__事前__江南__风电__统调风光功率预测_风力_江南分区_合并总表_xlsx__风力功率预测数据__mean__出清发布电力_MW": {
+      "source_file": "事前/事前_江南总表合集/统调风光功率预测_风力_江南分区_合并总表.xlsx",
+      "sheet": "风力功率预测数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "出清发布电力(MW)",
+      "phase": "事前",
+      "region": "江南",
+      "family": "风电"
+    },
+    "事后__汇总__实时出清__mean__江南分区价格_终发布_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/实时出清结果（公开）_合并总表.xlsx",
+      "sheet": "实时出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江南分区价格(终发布)（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "事后__汇总__实时出清__mean__江北分区价格_终发布_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/实时出清结果（公开）_合并总表.xlsx",
+      "sheet": "实时出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江北分区价格(终发布)（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "事后__汇总__实时出清__mean__江南分区节点边际电价均价_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/实时出清结果（公开）_合并总表.xlsx",
+      "sheet": "实时出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江南分区节点边际电价均价（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "事后__汇总__实时出清__mean__江北分区节点边际电价均价_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/实时出清结果（公开）_合并总表.xlsx",
+      "sheet": "实时出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江北分区节点边际电价均价;（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "其他__事后__汇总__受电__实际受电情况_合并总表_xlsx__实际受电情况数据__mean__实际发布电力_MW": {
+      "source_file": "事后/事后_汇总总表合集/实际受电情况_合并总表.xlsx",
+      "sheet": "实际受电情况数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际发布电力（MW）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "受电"
+    },
+    "其他__事后__汇总__负荷__实际系统负荷_合并总表_xlsx__实际系统负荷数据__mean__实际发布电力_MW": {
+      "source_file": "事后/事后_汇总总表合集/实际系统负荷_合并总表.xlsx",
+      "sheet": "实际系统负荷数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际发布电力（MW）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "负荷"
+    },
+    "事后__汇总__日前出清__mean__江南分区价格_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/日前出清结果（公开）_合并总表.xlsx",
+      "sheet": "日前出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江南分区价格（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "事后__汇总__日前出清__mean__江北分区价格_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/日前出清结果（公开）_合并总表.xlsx",
+      "sheet": "日前出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江北分区价格（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "事后__汇总__日前出清__mean__江南分区节点边际电价均价_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/日前出清结果（公开）_合并总表.xlsx",
+      "sheet": "日前出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江南分区节点边际电价均价（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "事后__汇总__日前出清__mean__江北分区节点边际电价均价_元_MWh": {
+      "source_file": "事后/事后_汇总总表合集/日前出清结果（公开）_合并总表.xlsx",
+      "sheet": "日前出清结果（公开）数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "江北分区节点边际电价均价（元/MWh）",
+      "phase": "事后",
+      "region": "汇总",
+      "family": "出清"
+    },
+    "其他__事后__江北__储能__实际储能固定出力总值_江北分区_合并总表_xlsx__储能出力_江北分区数据__mean__实际数据_MW": {
+      "source_file": "事后/事后_江北总表合集/实际储能固定出力总值_江北分区_合并总表.xlsx",
+      "sheet": "储能出力-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际数据（MW）",
+      "phase": "事后",
+      "region": "江北",
+      "family": "储能"
+    },
+    "其他__事后__江北__煤电__实际煤电固定出力总值_江北分区_合并总表_xlsx__煤电出力_江北分区数据__mean__实际数据_MW": {
+      "source_file": "事后/事后_江北总表合集/实际煤电固定出力总值_江北分区_合并总表.xlsx",
+      "sheet": "煤电出力-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际数据（MW）",
+      "phase": "事后",
+      "region": "江北",
+      "family": "煤电"
+    },
+    "其他__事后__江北__实际电网运行情况_江北分区_合并总表_xlsx__实际电网_江北分区数据__mean__实际总值_MW": {
+      "source_file": "事后/事后_江北总表合集/实际电网运行情况_江北分区_合并总表.xlsx",
+      "sheet": "实际电网-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际总值（MW）",
+      "phase": "事后",
+      "region": "江北",
+      "family": ""
+    },
+    "其他__事后__江北__光伏__实际统调风光情况_光伏_江北分区_合并总表_xlsx__光伏_江北分区数据__mean__实际发布电力_MW": {
+      "source_file": "事后/事后_江北总表合集/实际统调风光情况_光伏_江北分区_合并总表.xlsx",
+      "sheet": "光伏-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际发布电力（MW）",
+      "phase": "事后",
+      "region": "江北",
+      "family": "光伏"
+    },
+    "其他__事后__江北__实际统调风光情况_江北分区_合并总表_xlsx__统调风光_江北分区数据__mean__实际发布电力_MW": {
+      "source_file": "事后/事后_江北总表合集/实际统调风光情况_江北分区_合并总表.xlsx",
+      "sheet": "统调风光-江北分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际发布电力（MW）",
+      "phase": "事后",
+      "region": "江北",
+      "family": ""
+    },
+    "其他__事后__江南__储能__实际储能固定出力总值_江南分区_合并总表_xlsx__储能出力_江南分区数据__mean__实际数据_MW": {
+      "source_file": "事后/事后_江南总表合集/实际储能固定出力总值_江南分区_合并总表.xlsx",
+      "sheet": "储能出力-江南分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际数据（MW）",
+      "phase": "事后",
+      "region": "江南",
+      "family": "储能"
+    },
+    "其他__事后__江南__煤电__实际煤电固定出力总值_江南分区_合并总表_xlsx__煤电出力_江南分区数据__mean__实际数据_MW": {
+      "source_file": "事后/事后_江南总表合集/实际煤电固定出力总值_江南分区_合并总表.xlsx",
+      "sheet": "煤电出力-江南分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际数据（MW）",
+      "phase": "事后",
+      "region": "江南",
+      "family": "煤电"
+    },
+    "其他__事后__江南__实际电网运行情况_江南分区_合并总表_xlsx__实际电网_江南分区数据__mean__实际总值_MW": {
+      "source_file": "事后/事后_江南总表合集/实际电网运行情况_江南分区_合并总表.xlsx",
+      "sheet": "实际电网-江南分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际总值（MW）",
+      "phase": "事后",
+      "region": "江南",
+      "family": ""
+    },
+    "其他__事后__江南__光伏__实际统调风光情况_光伏_江南分区_合并总表_xlsx__光伏_江南分区数据__mean__实际发布电力_MW": {
+      "source_file": "事后/事后_江南总表合集/实际统调风光情况_光伏_江南分区_合并总表.xlsx",
+      "sheet": "光伏-江南分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际发布电力（MW）",
+      "phase": "事后",
+      "region": "江南",
+      "family": "光伏"
+    },
+    "其他__事后__江南__风电__实际统调风光情况_风力_江南分区_合并总表_xlsx__统调风光_江南分区数据__mean__实际发布电力_MW": {
+      "source_file": "事后/事后_江南总表合集/实际统调风光情况_风力_江南分区_合并总表.xlsx",
+      "sheet": "统调风光-江南分区数据",
+      "time_col": "__combined_datetime",
+      "time_source": "date+time_columns",
+      "kind": "其他",
+      "source_column": "实际发布电力（MW）",
+      "phase": "事后",
+      "region": "江南",
+      "family": "风电"
+    }
+  },
+  "errors": [],
+  "per_file": [
+    {
+      "file": "事前/事前_汇总总表合集/受电计划_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "受电计划数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_汇总总表合集/正负备用空间_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "合并数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_汇总总表合集/短期系统负荷预测_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "短期负荷预测数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江北总表合集/储能发电计划_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "储能-江北分区数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江北总表合集/煤电发电计划_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "煤电-江北分区数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江北总表合集/燃机固定出力总值_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "江北分区燃机数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江北总表合集/统调风光功率预测_太阳能_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "江北分区风光数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江北总表合集/统调风光功率预测_风力_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "风力-江北分区数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江南总表合集/储能发电计划_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "储能发电计划数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江南总表合集/煤电发电计划_江南分区合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "煤电发电计划数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江南总表合集/燃机固定出力总值_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "燃机固定出力数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江南总表合集/统调风光功率预测_太阳能_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "统调风光功率数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事前/事前_江南总表合集/统调风光功率预测_风力_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "风力功率预测数据"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "事后/事后_汇总总表合集/实时出清结果（公开）_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "实时出清结果（公开）数据"
+      ],
+      "metrics_extracted": 4
+    },
+    {
+      "file": "事后/事后_汇总总表合集/实际受电情况_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "实际受电情况数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_汇总总表合集/实际系统负荷_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "实际系统负荷数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_汇总总表合集/日前出清结果（公开）_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "日前出清结果（公开）数据"
+      ],
+      "metrics_extracted": 4
+    },
+    {
+      "file": "事后/事后_江北总表合集/实际储能固定出力总值_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "储能出力-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江北总表合集/实际煤电固定出力总值_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "煤电出力-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江北总表合集/实际电网运行情况_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "实际电网-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江北总表合集/实际统调风光情况_光伏_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "光伏-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江北总表合集/实际统调风光情况_江北分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "统调风光-江北分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江南总表合集/实际储能固定出力总值_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "储能出力-江南分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江南总表合集/实际煤电固定出力总值_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "煤电出力-江南分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江南总表合集/实际电网运行情况_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "实际电网-江南分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江南总表合集/实际统调风光情况_光伏_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "光伏-江南分区数据"
+      ],
+      "metrics_extracted": 1
+    },
+    {
+      "file": "事后/事后_江南总表合集/实际统调风光情况_风力_江南分区_合并总表.xlsx",
+      "kind": "其他",
+      "sheets_processed": [
+        "统调风光-江南分区数据"
+      ],
+      "metrics_extracted": 1
+    }
+  ]
+}

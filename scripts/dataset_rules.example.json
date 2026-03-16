@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "notes": "示例规则：用于把“抽取哪些sheet/列、如何聚合、如何命名指标”从代码里移出。",
+  "notes": "示例规则：抽取哪些 sheet/列、如何聚合从代码移出。Unnamed/序号/编号等由 build_dataset 默认排除；此处可追加排除（如节点列）。价格日表与汇总总表建议分条规则，时间列拼接逻辑可能不同。（已按 raw_data_quality_audit 报告结论更新排除与说明，详见 scripts/README.md 修改记录。）",
   "file_rules": [
     {
       "match_path_regex": "江苏/电价数据/25年日前-实时价格/.*\\.xlsx$",
       "mode": "extract_numeric",
       "time_column_regex": "(时间|date|time)",
-      "exclude_columns_regex": "(节点|node|ID|编号)",
+      "exclude_columns_regex": "(节点|node|ID|编号|Unnamed)",
       "max_metrics_per_sheet": 50,
       "aggregations": {
         "default": "mean",

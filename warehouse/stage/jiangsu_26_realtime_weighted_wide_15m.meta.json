@@ -1,0 +1,1642 @@
+{
+  "data_root": "/Users/tim/pythonwork/jiangsu_prj/江苏/电价数据/26年实时价格",
+  "excel_files": 58,
+  "metrics": 116,
+  "rows": 95,
+  "cols": 117,
+  "duration_sec": 1.59,
+  "mode": "preview",
+  "preview_rows": 5000,
+  "max_sheets_per_file": 0,
+  "freq": "15min",
+  "resample_agg": "mean",
+  "metric_meta": {
+    "2026_01_01_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-01.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_01_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-01.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_02_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-02.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_02_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-02.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_03_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-03.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_03_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-03.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_04_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-04.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_04_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-04.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_05_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-05.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_05_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-05.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_07_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-07.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_07_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-07.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_08_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-08.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_08_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-08.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_09_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-09.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_09_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-09.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_10_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-10.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_10_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-10.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_11_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-11.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_11_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-11.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_12_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-12.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_12_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-12.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_13_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-13.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_13_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-13.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_14_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-14.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_14_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-14.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_15_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-15.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_15_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-15.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_16_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-16.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_16_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-16.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_17_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-17.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_17_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-17.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_18_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-18.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_18_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-18.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_19_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-19.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_19_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-19.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_20_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-20.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_20_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-20.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_21_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-21.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_21_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-21.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_22_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-22.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_22_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-22.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_23_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-23.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_23_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-23.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_24_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-24.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_24_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-24.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_25_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-25.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_25_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-25.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_26_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-26.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_26_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-26.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_27_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-27.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_27_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-27.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_28_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-28.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_28_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-28.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_29_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-29.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_29_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-29.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_30_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-30.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_30_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-30.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_31_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-31.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_01_31_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-01-31.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_01_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-01.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_01_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-01.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_02_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-02.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_02_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-02.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_03_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-03.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_03_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-03.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_04_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-04.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_04_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-04.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_05_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-05.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_05_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-05.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_06_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-06.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_06_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-06.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_07_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-07.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_07_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-07.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_08_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-08.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_08_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-08.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_09_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-09.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_09_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-09.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_10_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-10.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_10_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-10.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_11_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-11.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_11_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-11.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_12_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-12.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_12_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-12.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_13_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-13.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_13_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-13.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_14_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-14.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_14_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-14.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_15_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-15.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_15_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-15.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_16_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-16.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_16_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-16.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_17_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-17.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_17_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-17.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_18_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-18.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_18_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-18.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_19_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-19.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_19_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-19.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_20_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-20.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_20_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-20.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_21_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-21.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_21_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-21.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_22_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-22.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_22_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-22.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_23_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-23.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_23_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-23.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_24_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-24.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_24_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-24.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_25_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-25.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_25_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-25.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_26_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-26.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_26_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-26.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_27_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-27.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_27_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-27.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_28_xls__sheet__weighted_avg__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-28.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    },
+    "2026_02_28_xls__sheet__mean__MWh": {
+      "source_file": "实时市场加权均价（公开）--2026-02-28.xls",
+      "sheet": "sheet",
+      "time_col": "时间",
+      "time_source": "column",
+      "kind": "其他",
+      "phase": "",
+      "region": "",
+      "family": ""
+    }
+  },
+  "errors": [],
+  "per_file": [
+    {
+      "file": "实时市场加权均价（公开）--2026-01-01.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-02.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-03.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-04.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-05.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-07.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-08.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-09.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-10.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-11.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-12.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-13.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-14.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-15.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-16.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-17.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-18.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-19.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-20.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-21.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-22.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-23.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-24.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-25.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-26.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-27.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-28.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-29.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-30.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-01-31.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-01.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-02.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-03.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-04.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-05.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-06.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-07.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-08.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-09.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-10.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-11.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-12.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-13.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-14.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-15.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-16.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-17.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-18.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-19.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-20.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-21.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-22.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-23.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-24.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-25.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-26.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-27.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    },
+    {
+      "file": "实时市场加权均价（公开）--2026-02-28.xls",
+      "kind": "其他",
+      "sheets_processed": [
+        "sheet"
+      ],
+      "metrics_extracted": 2
+    }
+  ]
+}

@@ -1,3 +1,11 @@
+"""
+基于统一频率时间序列 parquet 做特征工程，输出带 y 与滞后/滚动/日历特征的特征表。
+
+- 必须提供 --freq，与 build_dataset 输出频率一致；未提供时拒绝运行，避免“按行位移”的歧义。
+- 标签 y = target(t + horizon_steps)，horizon 可为步数或时间跨度（如 1 或 15min/1H）。
+- 支持 --include-regex / --exclude-regex / --max-missing-rate 控制参与特征构建的列。
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -13,7 +21,12 @@ import pandas as pd
 PRICE_HINT_RE = re.compile(r"(电价|价格|均价|LMP|出清价)", re.IGNORECASE)
 
 
+# -----------------------------------------------------------------------------
+# 目标列选取、滞后/滚动特征、频率与 horizon 解析、特征列筛选
+# -----------------------------------------------------------------------------
+
 def pick_target_column(df: pd.DataFrame, target: Optional[str]) -> str:
+    """若指定 target 则校验并返回；否则优先选名称匹配 PRICE_HINT_RE 的列，再退化为首列数值列。"""
     if target:
         if target not in df.columns:
             raise ValueError(f"target_col 不存在：{target}")
@@ -31,6 +44,7 @@ def pick_target_column(df: pd.DataFrame, target: Optional[str]) -> str:
 
 
 def make_lag_features(df: pd.DataFrame, cols: List[str], lags: List[int]) -> pd.DataFrame:
+    """为 cols 中每列按 lags 中每个步数生成 shift(lag) 列，命名 {col}__lag{lag}。"""
     out = df.copy()
     for c in cols:
         for lag in lags:
@@ -39,6 +53,7 @@ def make_lag_features(df: pd.DataFrame, cols: List[str], lags: List[int]) -> pd.
 
 
 def make_rolling_features(df: pd.DataFrame, cols: List[str], windows: List[int]) -> pd.DataFrame:
+    """为 cols 中每列按 windows 中每个窗口生成 roll_mean 与 roll_std 列。"""
     out = df.copy()
     for c in cols:
         s = out[c]
@@ -49,6 +64,7 @@ def make_rolling_features(df: pd.DataFrame, cols: List[str], windows: List[int])
 
 
 def _parse_freq(freq: str) -> str:
+    """校验并返回合法 pandas 频率字符串。"""
     try:
         pd.tseries.frequencies.to_offset(freq)
         return freq
@@ -57,7 +73,7 @@ def _parse_freq(freq: str) -> str:
 
 
 def _parse_horizon(horizon: str, freq: str) -> int:
-    # horizon can be like "1" (steps) or "15min"/"1H"/"1D" (timedelta)
+    """将 horizon 解析为步数：纯数字即步数；否则按时间跨度（如 15min/1H）除以 freq 得到步数。"""
     h = horizon.strip()
     if re.fullmatch(r"\d+", h):
         return int(h)
@@ -75,6 +91,7 @@ def _parse_horizon(horizon: str, freq: str) -> int:
 
 
 def _compile_optional_regex(p: str) -> Optional[Pattern[str]]:
+    """空字符串返回 None，否则返回编译后的正则。"""
     p = (p or "").strip()
     if not p:
         return None
@@ -87,6 +104,7 @@ def _select_feature_cols(
     exclude_re: Optional[Pattern[str]],
     max_missing_rate: float,
 ) -> List[str]:
+    """在数值列中按 include/exclude 正则与缺失率上限筛选，返回列名列表。"""
     cols = [c for c in df.columns if c != "timestamp" and pd.api.types.is_numeric_dtype(df[c])]
     out: List[str] = []
     for c in cols:
@@ -102,7 +120,12 @@ def _select_feature_cols(
     return out
 
 
+# -----------------------------------------------------------------------------
+# 入口：读 parquet、重采样、选目标与特征列、构建 y/lag/rolling/日历、写 parquet 与 meta
+# -----------------------------------------------------------------------------
+
 def main() -> int:
+    """解析参数、生成特征表与可选 meta JSON，返回 0。"""
     ap = argparse.ArgumentParser(description="Feature engineering for unified time-series parquet.")
     ap.add_argument("--input-parquet", required=True, help="Input parquet from build_dataset.py")
     ap.add_argument("--output-parquet", required=True, help="Output parquet for features table")

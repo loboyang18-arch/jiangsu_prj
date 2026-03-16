@@ -1,0 +1,66 @@
+{
+  "version": "2026-03-12",
+  "notes": "总表数据入库方案：L1 原始标准化层 + L2 建模可用层（V0 主窗 2025-09-01～12-31）。",
+  "paths": {
+    "repo_root": "/Users/tim/pythonwork/jiangsu_prj",
+    "out_dir": "/Users/tim/pythonwork/jiangsu_prj/warehouse",
+    "feature_registry": "/Users/tim/pythonwork/jiangsu_prj/scripts/feature_registry.json"
+  },
+  "sample_windows": {
+    "v0": {
+      "start": "2025-09-01",
+      "end": "2025-12-31",
+      "description": "主窗优先，默认主训练/回测",
+      "drop_feature_if_empty_days_gt": 10
+    }
+  },
+  "stage": {
+    "freq": "15min",
+    "total": {
+      "data_root": "/Users/tim/pythonwork/jiangsu_prj/总表",
+      "wide_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/stage/total_wide_15m.parquet",
+      "meta_json": "/Users/tim/pythonwork/jiangsu_prj/warehouse/stage/total_wide_15m.meta.json"
+    },
+    "jiangsu_supplement": [
+      {
+        "name": "26年实时价格",
+        "data_root": "/Users/tim/pythonwork/jiangsu_prj/江苏/电价数据/26年实时价格",
+        "wide_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/stage/jiangsu_26_realtime_weighted_wide_15m.parquet",
+        "meta_json": "/Users/tim/pythonwork/jiangsu_prj/warehouse/stage/jiangsu_26_realtime_weighted_wide_15m.meta.json"
+      },
+      {
+        "name": "26年电网实际边界",
+        "data_root": "/Users/tim/pythonwork/jiangsu_prj/江苏/电价数据/26年电网实际边界",
+        "wide_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/stage/jiangsu_26_grid_actual_boundary_wide_15m.parquet",
+        "meta_json": "/Users/tim/pythonwork/jiangsu_prj/warehouse/stage/jiangsu_26_grid_actual_boundary_wide_15m.meta.json"
+      }
+    ],
+    "jiangsu_unique_files": [
+      {
+        "name": "26年日前电价.xlsx",
+        "path": "/Users/tim/pythonwork/jiangsu_prj/江苏/电价数据/26年日前电价.xlsx"
+      }
+    ]
+  },
+  "build_policy": {
+    "primary_source_system": "总表",
+    "supplement_source_system": "江苏",
+    "total_coverage_end_date_inclusive": "2026-01-26",
+    "supplement_only_after_date": "2026-01-26",
+    "supplement_metric_allowlist": [
+      "江苏__26年日前电价",
+      "江苏__实时市场加权均价（公开）",
+      "江苏__26年电网实际边界"
+    ]
+  },
+  "outputs": {
+    "dwd_timeseries_15m_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/dwd/dwd_timeseries_15m.parquet",
+    "dim_metric_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/dim/dim_metric.parquet",
+    "dim_source_field_map_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/dim/dim_source_field_map.parquet",
+    "coverage_report_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/coverage_report.csv",
+    "consistency_audit_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/consistency_audit_sample.csv",
+    "feature_ready_v0_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/feature_ready/V0/power_market_feature_ready_wide.parquet",
+    "feature_drop_v0_log_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/feature_drop_v0_log.csv"
+  }
+}
+

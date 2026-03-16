@@ -1,3 +1,11 @@
+"""
+扫描项目内所有 Excel 文件，生成字段级数据字典（data_dictionary）。
+
+对每个文件的每个 sheet：识别时间列与时间范围/粒度，汇总每列 dtype、非空数、唯一值、示例值，
+输出 CSV（明细）与 Markdown（摘要 + 错误列表）。异常文件/ sheet 不阻断流程，仅记录到错误表。
+供数据盘点、rules 设计与 build_dataset 前的结构摸底使用。
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -15,9 +23,9 @@ from _excel_scan_utils import infer_time_summary, read_excel_preview, summarize_
 
 
 def iter_excel_files(data_root: str) -> List[str]:
+    """递归列出 data_root 下所有 .xls/.xlsx 文件路径（跳过 .git）。"""
     out: List[str] = []
     for dp, dn, fn in os.walk(data_root):
-        # skip git
         if os.path.basename(dp) == ".git" or "/.git/" in dp:
             dn[:] = []
             continue
@@ -29,11 +37,11 @@ def iter_excel_files(data_root: str) -> List[str]:
 
 
 def list_sheets(path: str) -> List[str]:
+    """获取工作簿的 sheet 名称列表；失败时尝试 openpyxl（兼容 .xls 实为 OOXML）。"""
     try:
         xls = pd.ExcelFile(path)
         return list(xls.sheet_names)
     except Exception:
-        # fallback: openpyxl for OOXML-in-.xls cases
         try:
             import openpyxl
 
@@ -44,6 +52,7 @@ def list_sheets(path: str) -> List[str]:
 
 
 def main() -> int:
+    """解析参数、遍历 Excel、写 data_dictionary.csv 与 data_dictionary.md，返回 0。"""
     ap = argparse.ArgumentParser(description="Scan Excel files and build a data dictionary.")
     ap.add_argument("--data-root", required=True, help="Project root containing data folders (e.g. repo root).")
     ap.add_argument("--output-dir", required=True, help="Output directory for data_dictionary.md/csv.")
