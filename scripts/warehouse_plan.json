@@ -11,7 +11,8 @@
       "start": "2025-09-01",
       "end": "2025-12-31",
       "description": "主窗优先，默认主训练/回测",
-      "drop_feature_if_empty_days_gt": 10
+      "drop_feature_if_empty_days_gt": 10,
+      "zero_run_missing_thresholds": [48, 96]
     }
   },
   "stage": {
@@ -60,7 +61,9 @@
     "coverage_report_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/coverage_report.csv",
     "consistency_audit_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/consistency_audit_sample.csv",
     "feature_ready_v0_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/feature_ready/V0/power_market_feature_ready_wide.parquet",
-    "feature_drop_v0_log_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/feature_drop_v0_log.csv"
+    "feature_drop_v0_log_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/feature_drop_v0_log.csv",
+    "feature_missing_full_v0_csv": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/feature_missing_stats_full_v0.csv",
+    "feature_missing_zero_run_v0_csv_prefix": "/Users/tim/pythonwork/jiangsu_prj/warehouse/audit/feature_missing_stats_full_v0_zero_run"
   }
 }
 

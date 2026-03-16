@@ -12,8 +12,10 @@
 | 1 | `scan_excel_dictionary.py` | 扫描所有 Excel，生成字段级数据字典（CSV/MD） |
 | 2 | `raw_data_quality_audit.py` | 原始数据质量审计：sheet/列统计、日期缺口、只读报告 |
 | 3 | `build_dataset.py` | 从异构 Excel 构建统一频率时间序列 parquet + meta JSON |
-| 4 | `feature_engineering.py` | 基于 parquet 做滞后/滚动/日历特征，输出带 y 的特征表 |
-| 5 | `train_baseline.py` | 在特征表上训练 LightGBM 基线，输出模型与 val/test 指标 |
+| 4 | `audit_feature_missing.py` | 导出 V0 全量缺失统计（支持“连续零值>=阈值视缺失”） |
+| 5 | `feature_engineering.py` | 基于 parquet 做滞后/滚动/日历特征，输出带 y 的特征表 |
+| 6 | `train_baseline.py` | 在特征表上训练 LightGBM 基线，输出模型与 val/test 指标 |
+| 7 | `notebook_env_smoke_test.py` | Notebook 环境快速自检（版本 + Parquet 读取） |
 
 ---
 
@@ -89,7 +91,24 @@ python scripts/build_dataset.py ... --rules scripts/dataset_rules.example.json
 
 ---
 
-## 4. feature_engineering.py
+## 4. audit_feature_missing.py
+
+- **用途**：从 `warehouse/feature_ready/V0/power_market_feature_ready_wide.parquet` 导出全量缺失统计，并支持把“连续零值（如 >=48 / >=96）”计为缺失。
+- **输入**：`--plan scripts/warehouse_plan.json`（读取输出路径和阈值配置）。
+- **输出**：
+  - `feature_missing_stats_full_v0.csv`
+  - `feature_missing_stats_full_v0_zero_run_ge{threshold}.csv`
+- **依赖**：pandas、pyarrow。
+
+**示例：**
+
+```bash
+python scripts/audit_feature_missing.py --plan scripts/warehouse_plan.json
+```
+
+---
+
+## 5. feature_engineering.py
 
 - **用途**：基于统一频率 parquet 做特征工程，生成标签 y = target(t + horizon) 以及滞后、滚动、日历特征；必须提供 `--freq`（与 build_dataset 一致）。
 - **输入**：`--input-parquet`、`--output-parquet`、`--freq`、`--horizon`（步数或时间如 15min/1H）；可选 `--target-col`、`--include-regex`、`--exclude-regex`、`--max-missing-rate`、`--output-meta`。
@@ -108,7 +127,7 @@ python scripts/feature_engineering.py \
 
 ---
 
-## 5. train_baseline.py
+## 6. train_baseline.py
 
 - **用途**：读取特征 parquet，按时间划分 train/val/test，训练 LightGBM 回归，在 val 上早停，在 test 上报告指标，并与 naive_last 基线对比。
 - **输入**：`--features-parquet`、`--model-dir`；可选 `--target-col`（默认 y）。
@@ -164,6 +183,19 @@ python scripts/train_baseline.py \
 - 建议在正式实验中：`build_dataset.py` 使用 `--freq` 固定频率，`feature_engineering.py` 使用相同 `--freq`；数据集构建使用 `--mode full`，preview 仅用于调试。
 
 更多使用说明见项目根目录 `README.md`。
+
+---
+
+## Notebook 环境与自检
+
+- 建议使用项目根目录 `environment.notebook.yml` 创建独立环境，避免 `numpy/pandas/pyarrow` ABI 冲突。
+- 启动 Jupyter 前可执行：
+
+```bash
+python scripts/notebook_env_smoke_test.py
+```
+
+若输出 `read_parquet` 成功，则 Notebook 可视化工具通常可直接使用。
 
 ---
 

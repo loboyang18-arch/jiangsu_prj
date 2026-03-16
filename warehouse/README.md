@@ -14,6 +14,9 @@
   - `dim_source_field_map.parquet`
 - `warehouse/audit/`：审计输出
   - `coverage_report.csv`
+  - `feature_missing_stats_full_v0.csv`
+  - `feature_missing_stats_full_v0_zero_run_ge48.csv`
+  - `feature_missing_stats_full_v0_zero_run_ge96.csv`
 
 ## 一键构建
 
@@ -21,6 +24,12 @@
 python scripts/build_parquet_warehouse.py \
   --plan scripts/warehouse_plan.json \
   --mode full
+```
+
+## 缺失统计（含连续零值规则）
+
+```bash
+python scripts/audit_feature_missing.py --plan scripts/warehouse_plan.json
 ```
 
 ## 说明
