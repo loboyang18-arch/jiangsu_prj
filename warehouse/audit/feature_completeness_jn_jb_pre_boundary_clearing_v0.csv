@@ -1,0 +1,13 @@
+metric_region,non_null_points,missing_ratio
+gas_plan_boundary_江北,11712,0.0
+gas_plan_boundary_江南,11712,0.0
+gas_plan_clearing_江北,11712,0.0
+gas_plan_clearing_江南,11712,0.0
+pv_forecast_boundary_江北,11712,0.0
+pv_forecast_boundary_江南,11712,0.0
+pv_forecast_clearing_江北,11712,0.0
+pv_forecast_clearing_江南,11712,0.0
+wind_forecast_boundary_江北,11712,0.0
+wind_forecast_boundary_江南,11712,0.0
+wind_forecast_clearing_江北,11712,0.0
+wind_forecast_clearing_江南,11712,0.0

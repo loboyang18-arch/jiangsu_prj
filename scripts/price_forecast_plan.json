@@ -1,0 +1,50 @@
+{
+  "version": "2026-03-v2",
+  "description": "江苏电价预测配置 — 日前任务已迁移至 train_dayahead.py，此文件仅保留实时任务配置",
+  "paths": {
+    "repo_root": "/Users/tim/pythonwork/jiangsu_prj",
+    "input_parquet": "/Users/tim/pythonwork/jiangsu_prj/warehouse/feature_ready/V0/power_market_feature_ready_wide.parquet",
+    "feature_registry_json": "/Users/tim/pythonwork/jiangsu_prj/scripts/feature_registry.json",
+    "output_root": "/Users/tim/pythonwork/jiangsu_prj/models"
+  },
+  "dayahead": {
+    "_note": "日前预测已迁移至 scripts/train_dayahead.py，不再使用 feature_engineering.py + train_baseline.py 流程",
+    "script": "scripts/train_dayahead.py",
+    "output_dir": "models/dayahead_v2"
+  },
+  "realtime": {
+    "feature_engineering": {
+      "freq": "15min",
+      "lags": "1,2,4,8,16,32,96",
+      "roll_windows": "4,8,24,96",
+      "max_missing_rate": 0.95,
+      "decision_time_policy": "asof_timestamp",
+      "allow_unknown_features": false,
+      "allow_current_target_feature": false,
+      "disable_target_history": false
+    },
+    "training": {
+      "target_col": "y",
+      "train_frac": 0.7,
+      "val_frac": 0.15,
+      "rolling_backtest": true,
+      "rolling_step_size": 0,
+      "objective": "point",
+      "quantile_alphas": [0.1, 0.5, 0.9],
+      "n_estimators": 800
+    },
+    "horizons": [1, 2, 4],
+    "tasks": [
+      {
+        "task_name": "realtime_jn_final",
+        "task_mode": "realtime",
+        "target_col": "price_realtime_jn_final_江南"
+      },
+      {
+        "task_name": "realtime_jb_final",
+        "task_mode": "realtime",
+        "target_col": "price_realtime_jb_final_江北"
+      }
+    ]
+  }
+}

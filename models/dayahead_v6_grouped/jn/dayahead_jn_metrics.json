@@ -1,0 +1,517 @@
+{
+  "region": "jn",
+  "target_col": "price_dayahead_jn_江南",
+  "data_rows": 11712,
+  "feature_count": 246,
+  "feature_names": [
+    "hh_index",
+    "bnd_load_forecast_boundary",
+    "bnd_load_forecast_boundary_diff",
+    "bnd_load_forecast_boundary_day_mean",
+    "bnd_load_forecast_boundary_day_std",
+    "bnd_load_forecast_boundary_rank",
+    "bnd_receive_plan_boundary",
+    "bnd_receive_plan_boundary_diff",
+    "bnd_receive_plan_boundary_day_mean",
+    "bnd_receive_plan_boundary_day_std",
+    "bnd_receive_plan_boundary_rank",
+    "bnd_gas_plan_boundary_jb",
+    "bnd_gas_plan_boundary_jb_diff",
+    "bnd_gas_plan_boundary_jb_day_mean",
+    "bnd_gas_plan_boundary_jb_day_std",
+    "bnd_gas_plan_boundary_jb_rank",
+    "bnd_gas_plan_boundary_jn",
+    "bnd_gas_plan_boundary_jn_diff",
+    "bnd_gas_plan_boundary_jn_day_mean",
+    "bnd_gas_plan_boundary_jn_day_std",
+    "bnd_gas_plan_boundary_jn_rank",
+    "bnd_pv_forecast_boundary_jb",
+    "bnd_pv_forecast_boundary_jb_diff",
+    "bnd_pv_forecast_boundary_jb_day_mean",
+    "bnd_pv_forecast_boundary_jb_day_std",
+    "bnd_pv_forecast_boundary_jb_rank",
+    "bnd_pv_forecast_boundary_jn",
+    "bnd_pv_forecast_boundary_jn_diff",
+    "bnd_pv_forecast_boundary_jn_day_mean",
+    "bnd_pv_forecast_boundary_jn_day_std",
+    "bnd_pv_forecast_boundary_jn_rank",
+    "bnd_wind_forecast_boundary_jb",
+    "bnd_wind_forecast_boundary_jb_diff",
+    "bnd_wind_forecast_boundary_jb_day_mean",
+    "bnd_wind_forecast_boundary_jb_day_std",
+    "bnd_wind_forecast_boundary_jb_rank",
+    "bnd_wind_forecast_boundary_jn",
+    "bnd_wind_forecast_boundary_jn_diff",
+    "bnd_wind_forecast_boundary_jn_day_mean",
+    "bnd_wind_forecast_boundary_jn_day_std",
+    "bnd_wind_forecast_boundary_jn_rank",
+    "bnd_reserve_positive",
+    "bnd_reserve_positive_diff",
+    "bnd_reserve_positive_day_mean",
+    "bnd_reserve_positive_day_std",
+    "bnd_reserve_positive_rank",
+    "bnd_reserve_negative",
+    "bnd_reserve_negative_diff",
+    "bnd_reserve_negative_day_mean",
+    "bnd_reserve_negative_day_std",
+    "bnd_reserve_negative_rank",
+    "net_load",
+    "net_load_day_mean",
+    "net_load_day_std",
+    "net_load_rank",
+    "re_penetration",
+    "re_total",
+    "re_total_day_mean",
+    "dow",
+    "month",
+    "is_weekend",
+    "p_jn_jn_dm1_mean",
+    "p_jn_jn_dm1_std",
+    "p_jn_jn_dm1_min",
+    "p_jn_jn_dm1_max",
+    "p_jn_jn_dm1_same_hh",
+    "p_jn_jn_dm1_same_hh_diff",
+    "p_jb_jb_dm1_mean",
+    "p_jb_jb_dm1_std",
+    "p_jb_jb_dm1_min",
+    "p_jb_jb_dm1_max",
+    "p_jb_jb_dm1_same_hh",
+    "p_jb_jb_dm1_same_hh_diff",
+    "p_jn_nd_jn_dm1_mean",
+    "p_jn_nd_jn_dm1_std",
+    "p_jn_nd_jn_dm1_min",
+    "p_jn_nd_jn_dm1_max",
+    "p_jn_nd_jn_dm1_same_hh",
+    "p_jn_nd_jn_dm1_same_hh_diff",
+    "p_jb_nd_jb_dm1_mean",
+    "p_jb_nd_jb_dm1_std",
+    "p_jb_nd_jb_dm1_min",
+    "p_jb_nd_jb_dm1_max",
+    "p_jb_nd_jb_dm1_same_hh",
+    "p_jb_nd_jb_dm1_same_hh_diff",
+    "rt_jn_jn_dm1_mean",
+    "rt_jn_jn_dm1_std",
+    "rt_jn_jn_dm1_min",
+    "rt_jn_jn_dm1_max",
+    "rt_jn_jn_dm1_same_hh",
+    "rt_jn_jn_dm1_floor_rate",
+    "rt_jn_jn_dm1_spike_rate",
+    "rt_jb_jb_dm1_mean",
+    "rt_jb_jb_dm1_std",
+    "rt_jb_jb_dm1_min",
+    "rt_jb_jb_dm1_max",
+    "rt_jb_jb_dm1_same_hh",
+    "rt_jb_jb_dm1_floor_rate",
+    "rt_jb_jb_dm1_spike_rate",
+    "rt_jn_nd_jn_dm1_mean",
+    "rt_jn_nd_jn_dm1_std",
+    "rt_jn_nd_jn_dm1_min",
+    "rt_jn_nd_jn_dm1_max",
+    "rt_jn_nd_jn_dm1_same_hh",
+    "rt_jn_nd_jn_dm1_floor_rate",
+    "rt_jn_nd_jn_dm1_spike_rate",
+    "rt_jb_nd_jb_dm1_mean",
+    "rt_jb_nd_jb_dm1_std",
+    "rt_jb_nd_jb_dm1_min",
+    "rt_jb_nd_jb_dm1_max",
+    "rt_jb_nd_jb_dm1_same_hh",
+    "rt_jb_nd_jb_dm1_floor_rate",
+    "rt_jb_nd_jb_dm1_spike_rate",
+    "dm1_spread_jn_mean",
+    "dm1_spread_jn_std",
+    "dm1_spread_jn_abs_mean",
+    "dm1_spread_jn_same_hh",
+    "dm1_spread_jb_mean",
+    "dm1_spread_jb_std",
+    "dm1_spread_jb_abs_mean",
+    "dm1_spread_jb_same_hh",
+    "load_actual_dm1_mean",
+    "load_actual_dm1_std",
+    "load_actual_dm1_same_hh",
+    "wind_actual_jb_dm1_mean",
+    "wind_actual_jb_dm1_std",
+    "wind_actual_jb_dm1_same_hh",
+    "wind_actual_jn_dm1_mean",
+    "wind_actual_jn_dm1_std",
+    "wind_actual_jn_dm1_same_hh",
+    "pv_actual_jb_dm1_mean",
+    "pv_actual_jb_dm1_std",
+    "pv_actual_jb_dm1_same_hh",
+    "pv_actual_jn_dm1_mean",
+    "pv_actual_jn_dm1_std",
+    "pv_actual_jn_dm1_same_hh",
+    "gas_actual_jb_dm1_mean",
+    "gas_actual_jb_dm1_std",
+    "gas_actual_jb_dm1_same_hh",
+    "gas_actual_jn_dm1_mean",
+    "gas_actual_jn_dm1_std",
+    "gas_actual_jn_dm1_same_hh",
+    "receive_actual_dm1_mean",
+    "receive_actual_dm1_std",
+    "receive_actual_dm1_same_hh",
+    "net_load_actual_dm1_mean",
+    "net_load_actual_dm1_min",
+    "net_load_actual_dm1_same_hh",
+    "re_penetration_actual_dm1",
+    "load_fcst_err_dm1_mean",
+    "re_fcst_err_dm1_mean",
+    "re_fcst_err_dm1_std",
+    "dm1_floor_rate",
+    "dm1_floor_count",
+    "dm1_spike_rate",
+    "p_jn_jn_dm2_mean",
+    "p_jn_jn_dm2_std",
+    "p_jn_jn_dm2_min",
+    "p_jn_jn_dm2_max",
+    "p_jn_jn_dm2_same_hh",
+    "p_jn_jn_dm2_same_hh_diff",
+    "p_jb_jb_dm2_mean",
+    "p_jb_jb_dm2_std",
+    "p_jb_jb_dm2_min",
+    "p_jb_jb_dm2_max",
+    "p_jb_jb_dm2_same_hh",
+    "p_jb_jb_dm2_same_hh_diff",
+    "p_jn_nd_jn_dm2_mean",
+    "p_jn_nd_jn_dm2_std",
+    "p_jn_nd_jn_dm2_min",
+    "p_jn_nd_jn_dm2_max",
+    "p_jn_nd_jn_dm2_same_hh",
+    "p_jn_nd_jn_dm2_same_hh_diff",
+    "p_jb_nd_jb_dm2_mean",
+    "p_jb_nd_jb_dm2_std",
+    "p_jb_nd_jb_dm2_min",
+    "p_jb_nd_jb_dm2_max",
+    "p_jb_nd_jb_dm2_same_hh",
+    "p_jb_nd_jb_dm2_same_hh_diff",
+    "rt_jn_jn_dm2_mean",
+    "rt_jn_jn_dm2_std",
+    "rt_jn_jn_dm2_min",
+    "rt_jn_jn_dm2_max",
+    "rt_jn_jn_dm2_same_hh",
+    "rt_jn_jn_dm2_floor_rate",
+    "rt_jn_jn_dm2_spike_rate",
+    "rt_jb_jb_dm2_mean",
+    "rt_jb_jb_dm2_std",
+    "rt_jb_jb_dm2_min",
+    "rt_jb_jb_dm2_max",
+    "rt_jb_jb_dm2_same_hh",
+    "rt_jb_jb_dm2_floor_rate",
+    "rt_jb_jb_dm2_spike_rate",
+    "rt_jn_nd_jn_dm2_mean",
+    "rt_jn_nd_jn_dm2_std",
+    "rt_jn_nd_jn_dm2_min",
+    "rt_jn_nd_jn_dm2_max",
+    "rt_jn_nd_jn_dm2_same_hh",
+    "rt_jn_nd_jn_dm2_floor_rate",
+    "rt_jn_nd_jn_dm2_spike_rate",
+    "rt_jb_nd_jb_dm2_mean",
+    "rt_jb_nd_jb_dm2_std",
+    "rt_jb_nd_jb_dm2_min",
+    "rt_jb_nd_jb_dm2_max",
+    "rt_jb_nd_jb_dm2_same_hh",
+    "rt_jb_nd_jb_dm2_floor_rate",
+    "rt_jb_nd_jb_dm2_spike_rate",
+    "p_jn_jn_3d_avg",
+    "p_jn_jn_3d_trend",
+    "p_jb_jb_3d_avg",
+    "p_jb_jb_3d_trend",
+    "p_jn_nd_jn_3d_avg",
+    "p_jn_nd_jn_3d_trend",
+    "p_jb_nd_jb_3d_avg",
+    "p_jb_nd_jb_3d_trend",
+    "p_jn_jn_dm7_mean",
+    "p_jn_jn_dm7_std",
+    "p_jn_jn_dm7_min",
+    "p_jn_jn_dm7_max",
+    "p_jn_jn_dm7_same_hh",
+    "p_jn_jn_dm7_same_hh_diff",
+    "p_jb_jb_dm7_mean",
+    "p_jb_jb_dm7_std",
+    "p_jb_jb_dm7_min",
+    "p_jb_jb_dm7_max",
+    "p_jb_jb_dm7_same_hh",
+    "p_jb_jb_dm7_same_hh_diff",
+    "p_jn_nd_jn_dm7_mean",
+    "p_jn_nd_jn_dm7_std",
+    "p_jn_nd_jn_dm7_min",
+    "p_jn_nd_jn_dm7_max",
+    "p_jn_nd_jn_dm7_same_hh",
+    "p_jn_nd_jn_dm7_same_hh_diff",
+    "p_jb_nd_jb_dm7_mean",
+    "p_jb_nd_jb_dm7_std",
+    "p_jb_nd_jb_dm7_min",
+    "p_jb_nd_jb_dm7_max",
+    "p_jb_nd_jb_dm7_same_hh",
+    "p_jb_nd_jb_dm7_same_hh_diff",
+    "trend_7d_jn",
+    "vol_7d_jn",
+    "trend_7d_jb",
+    "vol_7d_jb",
+    "hh_floor_rate_7d",
+    "hh_rt_jn_floor_rate_7d",
+    "hh_rt_jb_floor_rate_7d"
+  ],
+  "n_dates": 122,
+  "group_by_period": true,
+  "period_groups": {
+    "A_solar": [
+      37,
+      60
+    ],
+    "B_evening": [
+      61,
+      92
+    ],
+    "C_night": null
+  },
+  "cv_summary": {
+    "fold_count": 7,
+    "mean_mae": 84.1722,
+    "mean_rmse": 119.2061,
+    "mean_mape": 1.334419,
+    "mean_naive_yesterday_mae": 100.4278,
+    "group_mean_mae": {
+      "A_solar": 122.7522,
+      "B_evening": 67.3426,
+      "C_night": 74.488
+    }
+  },
+  "baselines": {
+    "naive_yesterday_same_hh": {
+      "mae": 91.40193452380953,
+      "rmse": 156.16453429262782,
+      "mape": 1.7257496704583482
+    },
+    "naive_lastweek_same_hh": {
+      "mae": 135.39642857142857,
+      "rmse": 195.01020066420946,
+      "mape": 2.8476774284714175
+    }
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "train_days": 60,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-07",
+      "test_date_end": "2025-11-13",
+      "test": {
+        "mae": 66.88177240279106,
+        "rmse": 101.12484034904408,
+        "mape": 1.0893340755429155
+      },
+      "group_detail": {
+        "A_solar": {
+          "mae": 106.75635794524257,
+          "rmse": 154.0130005640739
+        },
+        "B_evening": {
+          "mae": 26.093005584370122,
+          "rmse": 43.84285326349991
+        },
+        "C_night": {
+          "mae": 75.58803453205691,
+          "rmse": 115.21753388846155
+        }
+      },
+      "naive_yesterday": {
+        "mae": 88.97931547619048,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 1,
+      "train_days": 67,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-14",
+      "test_date_end": "2025-11-20",
+      "test": {
+        "mae": 68.60071030321579,
+        "rmse": 95.72861277138544,
+        "mape": 0.9580564335399705
+      },
+      "group_detail": {
+        "A_solar": {
+          "mae": 126.88678320770491,
+          "rmse": 173.25708401022814
+        },
+        "B_evening": {
+          "mae": 39.74625373259727,
+          "rmse": 48.978203419359204
+        },
+        "C_night": {
+          "mae": 56.71263181701714,
+          "rmse": 86.61185750970081
+        }
+      },
+      "naive_yesterday": {
+        "mae": 54.94568452380952,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 2,
+      "train_days": 74,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-21",
+      "test_date_end": "2025-11-27",
+      "test": {
+        "mae": 55.967667244013285,
+        "rmse": 85.80728407090562,
+        "mape": 0.7372125950621794
+      },
+      "group_detail": {
+        "A_solar": {
+          "mae": 111.41030130550375,
+          "rmse": 145.2377293125351
+        },
+        "B_evening": {
+          "mae": 29.29123961270197,
+          "rmse": 39.20256505601973
+        },
+        "C_night": {
+          "mae": 44.04322891216807,
+          "rmse": 87.43279213783667
+        }
+      },
+      "naive_yesterday": {
+        "mae": 58.97886904761905,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 3,
+      "train_days": 81,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-28",
+      "test_date_end": "2025-12-04",
+      "test": {
+        "mae": 95.06309634468937,
+        "rmse": 130.53660493699513,
+        "mape": 1.8105081369266827
+      },
+      "group_detail": {
+        "A_solar": {
+          "mae": 127.73531238386506,
+          "rmse": 161.51249119718625
+        },
+        "B_evening": {
+          "mae": 57.614693978096106,
+          "rmse": 87.65501390837645
+        },
+        "C_night": {
+          "mae": 105.41848861445858,
+          "rmse": 146.25634600377543
+        }
+      },
+      "naive_yesterday": {
+        "mae": 136.6205357142857,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 4,
+      "train_days": 88,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-12-05",
+      "test_date_end": "2025-12-11",
+      "test": {
+        "mae": 108.9373827803064,
+        "rmse": 145.60949114604747,
+        "mape": 2.245541817309192
+      },
+      "group_detail": {
+        "A_solar": {
+          "mae": 126.43747340658207,
+          "rmse": 161.67828909382374
+        },
+        "B_evening": {
+          "mae": 94.948692708552,
+          "rmse": 140.37373804995943
+        },
+        "C_night": {
+          "mae": 109.62828046194453,
+          "rmse": 140.15681485425213
+        }
+      },
+      "naive_yesterday": {
+        "mae": 116.49925595238096,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 5,
+      "train_days": 95,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-12-12",
+      "test_date_end": "2025-12-18",
+      "test": {
+        "mae": 90.58933986275632,
+        "rmse": 127.80454578192276,
+        "mape": 0.971737345624776
+      },
+      "group_detail": {
+        "A_solar": {
+          "mae": 129.1489113152407,
+          "rmse": 157.32317304498233
+        },
+        "B_evening": {
+          "mae": 99.60720521228977,
+          "rmse": 151.53966144461955
+        },
+        "C_night": {
+          "mae": 60.239304711638916,
+          "rmse": 91.10527689392956
+        }
+      },
+      "naive_yesterday": {
+        "mae": 130.00669642857142,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 6,
+      "train_days": 102,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-12-19",
+      "test_date_end": "2025-12-25",
+      "test": {
+        "mae": 103.16576762208636,
+        "rmse": 147.83145387822054,
+        "mape": 1.5285446538501155
+      },
+      "group_detail": {
+        "A_solar": {
+          "mae": 130.89046183199193,
+          "rmse": 166.71561105898013
+        },
+        "B_evening": {
+          "mae": 124.09696708190287,
+          "rmse": 171.30788483812958
+        },
+        "C_night": {
+          "mae": 69.78599152828981,
+          "rmse": 117.71981480183754
+        }
+      },
+      "naive_yesterday": {
+        "mae": 116.96428571428572,
+        "rmse": 0,
+        "mape": 0
+      }
+    }
+  ]
+}

@@ -49,9 +49,15 @@ env/
 # 生成产物（可由脚本重新生成）
 processed_data/*.parquet
 feature_table/*.parquet
-models/*.joblib
 scripts/__pycache__/
 
-# 可选：若不想把大文件提交到 Git，可取消下面注释
-# *.zip
-# *.xlsx
+# 模型二进制（体积大，可由脚本重建）
+models/**/*.pkl
+models/**/*.joblib
+
+# 原始数据（Excel 源文件，体积大）
+总表/
+江苏/
+
+# 空目录占位
+raw_data/

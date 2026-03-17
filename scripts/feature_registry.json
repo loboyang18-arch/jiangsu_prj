@@ -1,24 +1,392 @@
 {
-  "version": "2026-03",
-  "description": "总表入库方案字段注册：feature_code、有效起止、是否允许补全、是否默认进主库",
+  "version": "2026-03-v1",
+  "description": "总表入库字段注册 + 电价预测V1任务可得性与防泄漏规则",
+  "forecast_task_policies": {
+    "dayahead": {
+      "forbidden_feature_prefixes": [
+        "price_realtime_jn_final",
+        "price_realtime_jb_final",
+        "price_realtime_jn_node",
+        "price_realtime_jb_node",
+        "price_realtime_weighted_public"
+      ],
+      "drop_unknown_features": true
+    },
+    "realtime": {
+      "forbidden_feature_prefixes": [],
+      "drop_unknown_features": true
+    }
+  },
+  "availability_rules": {
+    "dayahead_dminus1_0930": {
+      "type": "fixed_day_offset",
+      "day_offset": -1,
+      "time_hhmm": "09:30",
+      "description": "D日该值在D-1 09:30可得"
+    },
+    "dayahead_dminus1_1700": {
+      "type": "fixed_day_offset",
+      "day_offset": -1,
+      "time_hhmm": "17:00",
+      "description": "D日该值在D-1 17:00可得"
+    },
+    "realtime_delay_1h": {
+      "type": "delay_from_value_ts",
+      "delay_minutes": 60,
+      "description": "该时点值在事件后1小时可得"
+    }
+  },
+  "availability_by_metric_prefix": {
+    "receive_plan_boundary": "dayahead_dminus1_0930",
+    "load_forecast_boundary": "dayahead_dminus1_0930",
+    "reserve_positive": "dayahead_dminus1_0930",
+    "reserve_negative": "dayahead_dminus1_0930",
+    "gas_plan_boundary": "dayahead_dminus1_0930",
+    "pv_forecast_boundary": "dayahead_dminus1_0930",
+    "wind_forecast_boundary": "dayahead_dminus1_0930",
+
+    "receive_plan_clearing": "dayahead_dminus1_1700",
+    "load_forecast_clearing": "dayahead_dminus1_1700",
+    "gas_plan_clearing": "dayahead_dminus1_1700",
+    "pv_forecast_clearing": "dayahead_dminus1_1700",
+    "wind_forecast_clearing": "dayahead_dminus1_1700",
+    "price_dayahead_jn": "dayahead_dminus1_1700",
+    "price_dayahead_jb": "dayahead_dminus1_1700",
+    "price_dayahead_jn_node": "dayahead_dminus1_1700",
+    "price_dayahead_jb_node": "dayahead_dminus1_1700",
+
+    "price_realtime_jn_final": "realtime_delay_1h",
+    "price_realtime_jb_final": "realtime_delay_1h",
+    "price_realtime_jn_node": "realtime_delay_1h",
+    "price_realtime_jb_node": "realtime_delay_1h",
+    "price_realtime_weighted_public": "realtime_delay_1h",
+    "receive_actual_huadong": "realtime_delay_1h",
+    "load_actual_total": "realtime_delay_1h",
+    "gas_actual": "realtime_delay_1h",
+    "pv_actual": "realtime_delay_1h",
+    "wind_actual": "realtime_delay_1h",
+    "storage_actual": "realtime_delay_1h",
+    "coal_actual": "realtime_delay_1h"
+  },
   "features": {
-    "receive_actual_huadong": { "feature_name_cn": "实际受电-华东", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": true },
-    "load_actual_total": { "feature_name_cn": "实际系统负荷", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": true },
-    "gas_actual": { "feature_name_cn": "实际燃机", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": true },
-    "pv_actual": { "feature_name_cn": "实际光伏", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": true },
-    "wind_actual": { "feature_name_cn": "实际风力", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": true },
-    "receive_plan_boundary": { "feature_name_cn": "受电计划-边界", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "前向填充", "is_model_default_enabled": true },
-    "receive_plan_clearing": { "feature_name_cn": "受电计划-出清", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "前向填充", "is_model_default_enabled": true },
-    "load_forecast_boundary": { "feature_name_cn": "短期负荷预测-边界", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "前向填充", "is_model_default_enabled": true },
-    "load_forecast_clearing": { "feature_name_cn": "短期负荷预测-出清", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "前向填充", "is_model_default_enabled": true },
-    "reserve_positive": { "feature_name_cn": "正备用", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "前向填充", "is_model_default_enabled": true },
-    "reserve_negative": { "feature_name_cn": "负备用", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "前向填充", "is_model_default_enabled": true },
-    "price_dayahead_jn": { "feature_name_cn": "日前出清-江南", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": false },
-    "price_dayahead_jb": { "feature_name_cn": "日前出清-江北", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": false },
-    "price_realtime_jn_final": { "feature_name_cn": "实时出清-江南(终发布)", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": false },
-    "price_realtime_jb_final": { "feature_name_cn": "实时出清-江北(终发布)", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": false },
-    "storage_actual": { "feature_name_cn": "储能实际", "valid_start_date": "2025-12-10", "valid_end_date": null, "allow_fill": "N", "fill_strategy": "不补", "is_model_default_enabled": false },
-    "coal_actual": { "feature_name_cn": "煤电实际", "valid_start_date": "2025-12-23", "valid_end_date": null, "allow_fill": "N", "fill_strategy": "不补", "is_model_default_enabled": false },
-    "price_realtime_weighted_public": { "feature_name_cn": "实时市场加权均价(公开)", "valid_start_date": null, "valid_end_date": null, "allow_fill": "Y", "fill_strategy": "同口径江苏", "is_model_default_enabled": false }
+    "receive_actual_huadong": {
+      "feature_name_cn": "实际受电-华东",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "load_actual_total": {
+      "feature_name_cn": "实际系统负荷",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "gas_actual": {
+      "feature_name_cn": "实际燃机",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "pv_actual": {
+      "feature_name_cn": "实际光伏",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "wind_actual": {
+      "feature_name_cn": "实际风力",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "receive_plan_boundary": {
+      "feature_name_cn": "受电计划-边界",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": false,
+      "task_whitelist": [],
+      "dedup_note": "与 receive_plan_clearing 相关 ~0.99，仅保留 clearing"
+    },
+    "receive_plan_clearing": {
+      "feature_name_cn": "受电计划-出清",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "load_forecast_boundary": {
+      "feature_name_cn": "短期负荷预测-边界",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": false,
+      "task_whitelist": [],
+      "dedup_note": "与 load_forecast_clearing 相关 ~0.99，仅保留 clearing"
+    },
+    "load_forecast_clearing": {
+      "feature_name_cn": "短期负荷预测-出清",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "reserve_positive": {
+      "feature_name_cn": "正备用",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "reserve_negative": {
+      "feature_name_cn": "负备用",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "gas_plan_boundary": {
+      "feature_name_cn": "燃机计划-边界",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": false,
+      "task_whitelist": [],
+      "dedup_note": "与 gas_plan_clearing 相关 ~0.99，仅保留 clearing"
+    },
+    "gas_plan_clearing": {
+      "feature_name_cn": "燃机计划-出清",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "pv_forecast_boundary": {
+      "feature_name_cn": "光伏预测-边界",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": false,
+      "task_whitelist": [],
+      "dedup_note": "与 pv_forecast_clearing 相关 ~0.99，仅保留 clearing"
+    },
+    "pv_forecast_clearing": {
+      "feature_name_cn": "光伏预测-出清",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "wind_forecast_boundary": {
+      "feature_name_cn": "风电预测-边界",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": false,
+      "task_whitelist": [],
+      "dedup_note": "与 wind_forecast_clearing 相关 ~0.99，仅保留 clearing"
+    },
+    "wind_forecast_clearing": {
+      "feature_name_cn": "风电预测-出清",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "前向填充",
+      "is_model_default_enabled": true,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "price_dayahead_jn": {
+      "feature_name_cn": "日前出清-江南",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "price_dayahead_jb": {
+      "feature_name_cn": "日前出清-江北",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "price_dayahead_jn_node": {
+      "feature_name_cn": "日前节点边际均价-江南",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "price_dayahead_jb_node": {
+      "feature_name_cn": "日前节点边际均价-江北",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "dayahead",
+        "realtime"
+      ]
+    },
+    "price_realtime_jn_final": {
+      "feature_name_cn": "实时出清-江南(终发布)",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "realtime"
+      ]
+    },
+    "price_realtime_jb_final": {
+      "feature_name_cn": "实时出清-江北(终发布)",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "realtime"
+      ]
+    },
+    "price_realtime_jn_node": {
+      "feature_name_cn": "实时节点边际均价-江南",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "realtime"
+      ]
+    },
+    "price_realtime_jb_node": {
+      "feature_name_cn": "实时节点边际均价-江北",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "realtime"
+      ]
+    },
+    "storage_actual": {
+      "feature_name_cn": "储能实际",
+      "valid_start_date": "2025-12-10",
+      "valid_end_date": null,
+      "allow_fill": "N",
+      "fill_strategy": "不补",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "realtime"
+      ]
+    },
+    "coal_actual": {
+      "feature_name_cn": "煤电实际",
+      "valid_start_date": "2025-12-23",
+      "valid_end_date": null,
+      "allow_fill": "N",
+      "fill_strategy": "不补",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "realtime"
+      ]
+    },
+    "price_realtime_weighted_public": {
+      "feature_name_cn": "实时市场加权均价(公开)",
+      "valid_start_date": null,
+      "valid_end_date": null,
+      "allow_fill": "Y",
+      "fill_strategy": "同口径江苏",
+      "is_model_default_enabled": false,
+      "task_whitelist": [
+        "realtime"
+      ]
+    }
   }
 }

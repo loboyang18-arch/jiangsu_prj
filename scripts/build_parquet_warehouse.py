@@ -160,6 +160,25 @@ def _canonicalize_from_meta(metric_name: str, mm: Dict) -> Optional[CanonicalFie
         if "负备用(MW)" in col_raw:
             return CanonicalField("reserve_negative", "汇总", "MW", "事前")
 
+    # 事前：江北/江南分区（燃机、光伏、风力）的边界/出清发布电力
+    # 说明：这批字段在 Stage 已抽取，若满足完整性与去重要求应纳入 DWD/V0。
+    if "事前_江北总表合集/" in rel or "事前_江南总表合集/" in rel:
+        if "燃机固定出力总值" in rel:
+            if "边界信息发布电力(MW)" in col_raw:
+                return CanonicalField("gas_plan_boundary", region, "MW", "事前")
+            if "出清发布电力(MW)" in col_raw:
+                return CanonicalField("gas_plan_clearing", region, "MW", "事前")
+        if "统调风光功率预测_太阳能" in rel:
+            if "边界信息发布电力(MW)" in col_raw:
+                return CanonicalField("pv_forecast_boundary", region, "MW", "事前")
+            if "出清发布电力(MW)" in col_raw:
+                return CanonicalField("pv_forecast_clearing", region, "MW", "事前")
+        if "统调风光功率预测_风力" in rel:
+            if "边界信息发布电力(MW)" in col_raw:
+                return CanonicalField("wind_forecast_boundary", region, "MW", "事前")
+            if "出清发布电力(MW)" in col_raw:
+                return CanonicalField("wind_forecast_clearing", region, "MW", "事前")
+
     # 事后：江北/江南分区（总表事后江北/江南）
     if "事后_江北总表合集/" in rel or "事后_江南总表合集/" in rel:
         if "实际储能固定出力总值" in rel and "实际数据（MW）" in col_raw:

@@ -4,6 +4,7 @@
 - 必须提供 --freq，与 build_dataset 输出频率一致；未提供时拒绝运行，避免“按行位移”的歧义。
 - 标签 y = target(t + horizon_steps)，horizon 可为步数或时间跨度（如 1 或 15min/1H）。
 - 支持 --include-regex / --exclude-regex / --max-missing-rate 控制参与特征构建的列。
+- 支持 --task-mode + feature_registry 白黑名单过滤，减少价格任务泄漏风险。
 """
 
 from __future__ import annotations
@@ -12,13 +13,15 @@ import argparse
 import json
 import os
 import re
-from typing import List, Optional, Pattern, Tuple
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Pattern, Tuple
 
 import numpy as np
 import pandas as pd
 
 
 PRICE_HINT_RE = re.compile(r"(电价|价格|均价|LMP|出清价)", re.IGNORECASE)
+SYSTEM_PASSTHROUGH_FEATURES = {"hh_index"}
 
 
 # -----------------------------------------------------------------------------
@@ -120,6 +123,147 @@ def _select_feature_cols(
     return out
 
 
+def _load_registry(path: str) -> Dict[str, Any]:
+    p = Path(path)
+    if not p.exists():
+        return {}
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def _extract_feature_key(col: str, registry_keys: List[str]) -> Optional[str]:
+    # 优先最长匹配，避免同前缀冲突
+    for k in sorted(registry_keys, key=len, reverse=True):
+        if col == k or col.startswith(f"{k}_"):
+            return k
+    return None
+
+
+def _apply_registry_policy(
+    candidate_cols: List[str],
+    target_col: str,
+    task_mode: str,
+    registry: Dict[str, Any],
+    allow_unknown_features: bool,
+) -> Tuple[List[str], Dict[str, List[str]]]:
+    features = registry.get("features", {})
+    policies = registry.get("forecast_task_policies", {})
+    task_policy = policies.get(task_mode, {})
+    forbidden_prefixes = set(task_policy.get("forbidden_feature_prefixes", []))
+    drop_unknown = bool(task_policy.get("drop_unknown_features", False))
+    if allow_unknown_features:
+        drop_unknown = False
+
+    keys = list(features.keys())
+    kept: List[str] = []
+    dropped = {"unknown": [], "not_whitelisted": [], "forbidden": []}
+    for c in candidate_cols:
+        if c == target_col:
+            kept.append(c)
+            continue
+        if c in SYSTEM_PASSTHROUGH_FEATURES:
+            kept.append(c)
+            continue
+        k = _extract_feature_key(str(c), keys)
+        if k is None:
+            if drop_unknown:
+                dropped["unknown"].append(str(c))
+                continue
+            kept.append(c)
+            continue
+
+        entry = features.get(k, {})
+        whitelist = entry.get("task_whitelist", ["dayahead", "realtime"])
+        if task_mode not in whitelist and "all" not in whitelist:
+            dropped["not_whitelisted"].append(str(c))
+            continue
+
+        if any(k == fp or k.startswith(f"{fp}_") for fp in forbidden_prefixes):
+            dropped["forbidden"].append(str(c))
+            continue
+        kept.append(c)
+
+    return kept, dropped
+
+
+def _assert_no_future_leakage(columns: List[str], target_col: str) -> None:
+    # 特征名中出现 lead/future 视为硬错误
+    bad = [c for c in columns if re.search(r"(lead|future|t\+)", str(c), re.IGNORECASE)]
+    if bad:
+        raise ValueError(f"检测到潜在未来信息列，拒绝继续：{bad[:10]}")
+    if any(c == target_col for c in columns):
+        raise ValueError("检测到当前时点目标列直接进入特征，存在泄漏风险。")
+
+
+def _parse_hhmm(hhmm: str) -> Tuple[int, int]:
+    m = re.fullmatch(r"(\d{1,2}):(\d{2})", (hhmm or "").strip())
+    if not m:
+        raise ValueError(f"非法时刻字符串：{hhmm}，应为 HH:MM")
+    hh = int(m.group(1))
+    mm = int(m.group(2))
+    if hh < 0 or hh > 23 or mm < 0 or mm > 59:
+        raise ValueError(f"非法时刻字符串：{hhmm}，小时需在 0-23，分钟需在 0-59")
+    return hh, mm
+
+
+def _build_decision_ts(ts: pd.Series, policy: str) -> pd.Series:
+    p = (policy or "asof_timestamp").strip()
+    if p == "asof_timestamp":
+        return ts
+    if p in {"dayahead_dminus1_0930", "dayahead_dminus1_1700"}:
+        hhmm = "09:30" if p.endswith("0930") else "17:00"
+        hh, mm = _parse_hhmm(hhmm)
+        # 以 value 的交付日（trade_date）为锚：该日对应 D 日，决策时点为 D-1 固定时刻
+        return ts.dt.normalize() - pd.Timedelta(days=1) + pd.Timedelta(hours=hh, minutes=mm)
+    raise ValueError(f"未知 decision-time-policy：{p}")
+
+
+def _resolve_release_rule(metric_key: str, registry: Dict[str, Any]) -> Optional[str]:
+    features = registry.get("features", {})
+    entry = features.get(metric_key, {})
+    rule = entry.get("availability_rule")
+    if rule:
+        return str(rule)
+    by_prefix = registry.get("availability_by_metric_prefix", {})
+    for p in sorted(by_prefix.keys(), key=len, reverse=True):
+        if metric_key == p or metric_key.startswith(f"{p}_"):
+            return str(by_prefix[p])
+    return None
+
+
+def _calc_publish_ts_for_rule(ts: pd.Series, rule_id: str, registry: Dict[str, Any]) -> pd.Series:
+    rules = registry.get("availability_rules", {})
+    rule = rules.get(rule_id, {})
+    if not rule:
+        # 未配置规则时，默认视作“与值时刻同时可得”
+        return ts
+    t = str(rule.get("type", "")).strip()
+    if t == "fixed_day_offset":
+        day_offset = int(rule.get("day_offset", 0))
+        hh, mm = _parse_hhmm(str(rule.get("time_hhmm", "00:00")))
+        return ts.dt.normalize() + pd.Timedelta(days=day_offset) + pd.Timedelta(hours=hh, minutes=mm)
+    if t == "delay_from_value_ts":
+        delay_minutes = int(rule.get("delay_minutes", 0))
+        return ts + pd.Timedelta(minutes=delay_minutes)
+    raise ValueError(f"未知 availability rule type: {t} (rule_id={rule_id})")
+
+
+def _build_publish_ts_map(
+    feature_cols: List[str],
+    ts: pd.Series,
+    registry: Dict[str, Any],
+) -> Dict[str, pd.Series]:
+    keys = list(registry.get("features", {}).keys())
+    out: Dict[str, pd.Series] = {}
+    for c in feature_cols:
+        k = _extract_feature_key(str(c), keys)
+        if k is None:
+            out[c] = ts
+            continue
+        rule_id = _resolve_release_rule(k, registry)
+        out[c] = _calc_publish_ts_for_rule(ts, rule_id, registry) if rule_id else ts
+    return out
+
+
 # -----------------------------------------------------------------------------
 # 入口：读 parquet、重采样、选目标与特征列、构建 y/lag/rolling/日历、写 parquet 与 meta
 # -----------------------------------------------------------------------------
@@ -138,6 +282,17 @@ def main() -> int:
     ap.add_argument("--include-regex", default="", help="只保留匹配该正则的特征列名（可选）")
     ap.add_argument("--exclude-regex", default="", help="排除匹配该正则的特征列名（可选）")
     ap.add_argument("--max-missing-rate", type=float, default=0.95, help="特征列缺失率上限（默认 0.95）")
+    ap.add_argument("--task-mode", choices=["generic", "dayahead", "realtime"], default="generic", help="任务模式：generic/dayahead/realtime")
+    ap.add_argument("--registry-json", default="", help="feature_registry.json 路径（task-mode 非 generic 时建议提供）")
+    ap.add_argument("--allow-unknown-features", action="store_true", help="task-mode 下是否允许 registry 未登记特征")
+    ap.add_argument("--allow-current-target-feature", action="store_true", help="允许把 target(t) 直接作为特征（默认关闭，防泄漏）")
+    ap.add_argument("--disable-target-history", action="store_true", help="禁用 target 历史滞后/滚动特征")
+    ap.add_argument(
+        "--decision-time-policy",
+        choices=["asof_timestamp", "dayahead_dminus1_0930", "dayahead_dminus1_1700"],
+        default="asof_timestamp",
+        help="样本决策时点策略：asof_timestamp(默认) / 日前D-1 09:30 / 日前D-1 17:00",
+    )
     ap.add_argument("--drop-na", action="store_true", help="Drop rows with any NA in X/y")
     args = ap.parse_args()
 
@@ -177,10 +332,25 @@ def main() -> int:
     if target not in feature_base_cols:
         feature_base_cols.append(target)
 
+    registry_path = args.registry_json.strip() or os.path.join(os.path.dirname(__file__), "feature_registry.json")
+    registry = _load_registry(registry_path) if args.task_mode != "generic" else {}
+    registry_drop_report: Dict[str, List[str]] = {"unknown": [], "not_whitelisted": [], "forbidden": []}
+    if args.task_mode != "generic":
+        feature_base_cols, registry_drop_report = _apply_registry_policy(
+            candidate_cols=feature_base_cols,
+            target_col=target,
+            task_mode=args.task_mode,
+            registry=registry,
+            allow_unknown_features=bool(args.allow_unknown_features),
+        )
+        if target not in feature_base_cols:
+            feature_base_cols.append(target)
+
     lags = [int(x) for x in args.lags.split(",") if x.strip()]
     wins = [int(x) for x in args.roll_windows.split(",") if x.strip()]
 
     feat = df[["timestamp"] + feature_base_cols].copy()
+    decision_ts = _build_decision_ts(feat["timestamp"], args.decision_time_policy)
 
     if args.freq:
         horizon_steps = _parse_horizon(args.horizon, args.freq)
@@ -191,11 +361,29 @@ def main() -> int:
 
     feat["y"] = feat[target].shift(-horizon_steps)
 
-    # X excludes y and the raw target at time t is allowed (for one-step ahead, it's ok)
-    x_cols = feature_base_cols
+    # 默认保留 target 历史特征（lag/rolling），但不直接把 target(t) 作为模型输入，避免泄漏。
+    x_cols = list(feature_base_cols)
+    if args.disable_target_history and target in x_cols:
+        x_cols.remove(target)
+
+    # as-of 可得性过滤（规范化）：按 registry 发布时间规则裁剪 base 与 lag 特征。
+    # 说明：rolling 特征在“已裁剪的时序”上计算，确保不会引入明确晚于决策时点的值。
+    publish_ts_map = _build_publish_ts_map(x_cols, feat["timestamp"], registry if args.task_mode != "generic" else {})
+    for c in x_cols:
+        pub = publish_ts_map.get(c, feat["timestamp"])
+        feat[c] = feat[c].where(pub <= decision_ts)
 
     feat = make_lag_features(feat, x_cols, lags=lags)
+    for c in x_cols:
+        pub = publish_ts_map.get(c, feat["timestamp"])
+        for lag in lags:
+            lag_name = f"{c}__lag{lag}"
+            lag_pub = pub.shift(lag)
+            feat[lag_name] = feat[lag_name].where(lag_pub <= decision_ts)
     feat = make_rolling_features(feat, x_cols, windows=wins)
+
+    if not args.allow_current_target_feature and target in feat.columns:
+        feat = feat.drop(columns=[target])
 
     # calendar features
     ts = feat["timestamp"]
@@ -206,6 +394,7 @@ def main() -> int:
     # keep columns order: timestamp, y, X...
     keep = ["timestamp", "y"] + [c for c in feat.columns if c not in {"timestamp", "y"}]
     feat = feat[keep]
+    _assert_no_future_leakage([c for c in feat.columns if c not in {"timestamp", "y"}], target_col=target)
 
     if args.drop_na:
         feat = feat.dropna().reset_index(drop=True)
@@ -227,6 +416,14 @@ def main() -> int:
             "include_regex": args.include_regex,
             "exclude_regex": args.exclude_regex,
             "max_missing_rate": float(args.max_missing_rate),
+            "task_mode": args.task_mode,
+            "registry_json": registry_path if args.task_mode != "generic" else "",
+            "registry_dropped_unknown_count": len(registry_drop_report.get("unknown", [])),
+            "registry_dropped_not_whitelisted_count": len(registry_drop_report.get("not_whitelisted", [])),
+            "registry_dropped_forbidden_count": len(registry_drop_report.get("forbidden", [])),
+            "allow_current_target_feature": bool(args.allow_current_target_feature),
+            "disable_target_history": bool(args.disable_target_history),
+            "decision_time_policy": args.decision_time_policy,
             "rows": int(feat.shape[0]),
             "cols": int(feat.shape[1]),
         }
@@ -234,6 +431,11 @@ def main() -> int:
             json.dump(meta, w, ensure_ascii=False, indent=2)
 
     print(f"Target(t): {target}")
+    if args.task_mode != "generic":
+        print(
+            "Registry filter drop counts:",
+            {k: len(v) for k, v in registry_drop_report.items()},
+        )
     print(f"Wrote features: {outp} ({feat.shape[0]} rows, {feat.shape[1]} cols)")
     return 0
 

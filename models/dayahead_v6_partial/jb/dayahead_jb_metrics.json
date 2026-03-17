@@ -1,0 +1,484 @@
+{
+  "region": "jb",
+  "target_col": "price_dayahead_jb_江北",
+  "data_rows": 11712,
+  "feature_count": 246,
+  "feature_names": [
+    "hh_index",
+    "bnd_load_forecast_boundary",
+    "bnd_load_forecast_boundary_diff",
+    "bnd_load_forecast_boundary_day_mean",
+    "bnd_load_forecast_boundary_day_std",
+    "bnd_load_forecast_boundary_rank",
+    "bnd_receive_plan_boundary",
+    "bnd_receive_plan_boundary_diff",
+    "bnd_receive_plan_boundary_day_mean",
+    "bnd_receive_plan_boundary_day_std",
+    "bnd_receive_plan_boundary_rank",
+    "bnd_gas_plan_boundary_jb",
+    "bnd_gas_plan_boundary_jb_diff",
+    "bnd_gas_plan_boundary_jb_day_mean",
+    "bnd_gas_plan_boundary_jb_day_std",
+    "bnd_gas_plan_boundary_jb_rank",
+    "bnd_gas_plan_boundary_jn",
+    "bnd_gas_plan_boundary_jn_diff",
+    "bnd_gas_plan_boundary_jn_day_mean",
+    "bnd_gas_plan_boundary_jn_day_std",
+    "bnd_gas_plan_boundary_jn_rank",
+    "bnd_pv_forecast_boundary_jb",
+    "bnd_pv_forecast_boundary_jb_diff",
+    "bnd_pv_forecast_boundary_jb_day_mean",
+    "bnd_pv_forecast_boundary_jb_day_std",
+    "bnd_pv_forecast_boundary_jb_rank",
+    "bnd_pv_forecast_boundary_jn",
+    "bnd_pv_forecast_boundary_jn_diff",
+    "bnd_pv_forecast_boundary_jn_day_mean",
+    "bnd_pv_forecast_boundary_jn_day_std",
+    "bnd_pv_forecast_boundary_jn_rank",
+    "bnd_wind_forecast_boundary_jb",
+    "bnd_wind_forecast_boundary_jb_diff",
+    "bnd_wind_forecast_boundary_jb_day_mean",
+    "bnd_wind_forecast_boundary_jb_day_std",
+    "bnd_wind_forecast_boundary_jb_rank",
+    "bnd_wind_forecast_boundary_jn",
+    "bnd_wind_forecast_boundary_jn_diff",
+    "bnd_wind_forecast_boundary_jn_day_mean",
+    "bnd_wind_forecast_boundary_jn_day_std",
+    "bnd_wind_forecast_boundary_jn_rank",
+    "bnd_reserve_positive",
+    "bnd_reserve_positive_diff",
+    "bnd_reserve_positive_day_mean",
+    "bnd_reserve_positive_day_std",
+    "bnd_reserve_positive_rank",
+    "bnd_reserve_negative",
+    "bnd_reserve_negative_diff",
+    "bnd_reserve_negative_day_mean",
+    "bnd_reserve_negative_day_std",
+    "bnd_reserve_negative_rank",
+    "net_load",
+    "net_load_day_mean",
+    "net_load_day_std",
+    "net_load_rank",
+    "re_penetration",
+    "re_total",
+    "re_total_day_mean",
+    "dow",
+    "month",
+    "is_weekend",
+    "p_jn_jn_dm1_mean",
+    "p_jn_jn_dm1_std",
+    "p_jn_jn_dm1_min",
+    "p_jn_jn_dm1_max",
+    "p_jn_jn_dm1_same_hh",
+    "p_jn_jn_dm1_same_hh_diff",
+    "p_jb_jb_dm1_mean",
+    "p_jb_jb_dm1_std",
+    "p_jb_jb_dm1_min",
+    "p_jb_jb_dm1_max",
+    "p_jb_jb_dm1_same_hh",
+    "p_jb_jb_dm1_same_hh_diff",
+    "p_jn_nd_jn_dm1_mean",
+    "p_jn_nd_jn_dm1_std",
+    "p_jn_nd_jn_dm1_min",
+    "p_jn_nd_jn_dm1_max",
+    "p_jn_nd_jn_dm1_same_hh",
+    "p_jn_nd_jn_dm1_same_hh_diff",
+    "p_jb_nd_jb_dm1_mean",
+    "p_jb_nd_jb_dm1_std",
+    "p_jb_nd_jb_dm1_min",
+    "p_jb_nd_jb_dm1_max",
+    "p_jb_nd_jb_dm1_same_hh",
+    "p_jb_nd_jb_dm1_same_hh_diff",
+    "rt_jn_jn_dm1_mean",
+    "rt_jn_jn_dm1_std",
+    "rt_jn_jn_dm1_min",
+    "rt_jn_jn_dm1_max",
+    "rt_jn_jn_dm1_same_hh",
+    "rt_jn_jn_dm1_floor_rate",
+    "rt_jn_jn_dm1_spike_rate",
+    "rt_jb_jb_dm1_mean",
+    "rt_jb_jb_dm1_std",
+    "rt_jb_jb_dm1_min",
+    "rt_jb_jb_dm1_max",
+    "rt_jb_jb_dm1_same_hh",
+    "rt_jb_jb_dm1_floor_rate",
+    "rt_jb_jb_dm1_spike_rate",
+    "rt_jn_nd_jn_dm1_mean",
+    "rt_jn_nd_jn_dm1_std",
+    "rt_jn_nd_jn_dm1_min",
+    "rt_jn_nd_jn_dm1_max",
+    "rt_jn_nd_jn_dm1_same_hh",
+    "rt_jn_nd_jn_dm1_floor_rate",
+    "rt_jn_nd_jn_dm1_spike_rate",
+    "rt_jb_nd_jb_dm1_mean",
+    "rt_jb_nd_jb_dm1_std",
+    "rt_jb_nd_jb_dm1_min",
+    "rt_jb_nd_jb_dm1_max",
+    "rt_jb_nd_jb_dm1_same_hh",
+    "rt_jb_nd_jb_dm1_floor_rate",
+    "rt_jb_nd_jb_dm1_spike_rate",
+    "dm1_spread_jn_mean",
+    "dm1_spread_jn_std",
+    "dm1_spread_jn_abs_mean",
+    "dm1_spread_jn_same_hh",
+    "dm1_spread_jb_mean",
+    "dm1_spread_jb_std",
+    "dm1_spread_jb_abs_mean",
+    "dm1_spread_jb_same_hh",
+    "load_actual_dm1_mean",
+    "load_actual_dm1_std",
+    "load_actual_dm1_same_hh",
+    "wind_actual_jb_dm1_mean",
+    "wind_actual_jb_dm1_std",
+    "wind_actual_jb_dm1_same_hh",
+    "wind_actual_jn_dm1_mean",
+    "wind_actual_jn_dm1_std",
+    "wind_actual_jn_dm1_same_hh",
+    "pv_actual_jb_dm1_mean",
+    "pv_actual_jb_dm1_std",
+    "pv_actual_jb_dm1_same_hh",
+    "pv_actual_jn_dm1_mean",
+    "pv_actual_jn_dm1_std",
+    "pv_actual_jn_dm1_same_hh",
+    "gas_actual_jb_dm1_mean",
+    "gas_actual_jb_dm1_std",
+    "gas_actual_jb_dm1_same_hh",
+    "gas_actual_jn_dm1_mean",
+    "gas_actual_jn_dm1_std",
+    "gas_actual_jn_dm1_same_hh",
+    "receive_actual_dm1_mean",
+    "receive_actual_dm1_std",
+    "receive_actual_dm1_same_hh",
+    "net_load_actual_dm1_mean",
+    "net_load_actual_dm1_min",
+    "net_load_actual_dm1_same_hh",
+    "re_penetration_actual_dm1",
+    "load_fcst_err_dm1_mean",
+    "re_fcst_err_dm1_mean",
+    "re_fcst_err_dm1_std",
+    "dm1_floor_rate",
+    "dm1_floor_count",
+    "dm1_spike_rate",
+    "p_jn_jn_dm2_mean",
+    "p_jn_jn_dm2_std",
+    "p_jn_jn_dm2_min",
+    "p_jn_jn_dm2_max",
+    "p_jn_jn_dm2_same_hh",
+    "p_jn_jn_dm2_same_hh_diff",
+    "p_jb_jb_dm2_mean",
+    "p_jb_jb_dm2_std",
+    "p_jb_jb_dm2_min",
+    "p_jb_jb_dm2_max",
+    "p_jb_jb_dm2_same_hh",
+    "p_jb_jb_dm2_same_hh_diff",
+    "p_jn_nd_jn_dm2_mean",
+    "p_jn_nd_jn_dm2_std",
+    "p_jn_nd_jn_dm2_min",
+    "p_jn_nd_jn_dm2_max",
+    "p_jn_nd_jn_dm2_same_hh",
+    "p_jn_nd_jn_dm2_same_hh_diff",
+    "p_jb_nd_jb_dm2_mean",
+    "p_jb_nd_jb_dm2_std",
+    "p_jb_nd_jb_dm2_min",
+    "p_jb_nd_jb_dm2_max",
+    "p_jb_nd_jb_dm2_same_hh",
+    "p_jb_nd_jb_dm2_same_hh_diff",
+    "rt_jn_jn_dm2_mean",
+    "rt_jn_jn_dm2_std",
+    "rt_jn_jn_dm2_min",
+    "rt_jn_jn_dm2_max",
+    "rt_jn_jn_dm2_same_hh",
+    "rt_jn_jn_dm2_floor_rate",
+    "rt_jn_jn_dm2_spike_rate",
+    "rt_jb_jb_dm2_mean",
+    "rt_jb_jb_dm2_std",
+    "rt_jb_jb_dm2_min",
+    "rt_jb_jb_dm2_max",
+    "rt_jb_jb_dm2_same_hh",
+    "rt_jb_jb_dm2_floor_rate",
+    "rt_jb_jb_dm2_spike_rate",
+    "rt_jn_nd_jn_dm2_mean",
+    "rt_jn_nd_jn_dm2_std",
+    "rt_jn_nd_jn_dm2_min",
+    "rt_jn_nd_jn_dm2_max",
+    "rt_jn_nd_jn_dm2_same_hh",
+    "rt_jn_nd_jn_dm2_floor_rate",
+    "rt_jn_nd_jn_dm2_spike_rate",
+    "rt_jb_nd_jb_dm2_mean",
+    "rt_jb_nd_jb_dm2_std",
+    "rt_jb_nd_jb_dm2_min",
+    "rt_jb_nd_jb_dm2_max",
+    "rt_jb_nd_jb_dm2_same_hh",
+    "rt_jb_nd_jb_dm2_floor_rate",
+    "rt_jb_nd_jb_dm2_spike_rate",
+    "p_jn_jn_3d_avg",
+    "p_jn_jn_3d_trend",
+    "p_jb_jb_3d_avg",
+    "p_jb_jb_3d_trend",
+    "p_jn_nd_jn_3d_avg",
+    "p_jn_nd_jn_3d_trend",
+    "p_jb_nd_jb_3d_avg",
+    "p_jb_nd_jb_3d_trend",
+    "p_jn_jn_dm7_mean",
+    "p_jn_jn_dm7_std",
+    "p_jn_jn_dm7_min",
+    "p_jn_jn_dm7_max",
+    "p_jn_jn_dm7_same_hh",
+    "p_jn_jn_dm7_same_hh_diff",
+    "p_jb_jb_dm7_mean",
+    "p_jb_jb_dm7_std",
+    "p_jb_jb_dm7_min",
+    "p_jb_jb_dm7_max",
+    "p_jb_jb_dm7_same_hh",
+    "p_jb_jb_dm7_same_hh_diff",
+    "p_jn_nd_jn_dm7_mean",
+    "p_jn_nd_jn_dm7_std",
+    "p_jn_nd_jn_dm7_min",
+    "p_jn_nd_jn_dm7_max",
+    "p_jn_nd_jn_dm7_same_hh",
+    "p_jn_nd_jn_dm7_same_hh_diff",
+    "p_jb_nd_jb_dm7_mean",
+    "p_jb_nd_jb_dm7_std",
+    "p_jb_nd_jb_dm7_min",
+    "p_jb_nd_jb_dm7_max",
+    "p_jb_nd_jb_dm7_same_hh",
+    "p_jb_nd_jb_dm7_same_hh_diff",
+    "trend_7d_jb",
+    "vol_7d_jb",
+    "trend_7d_jn",
+    "vol_7d_jn",
+    "hh_floor_rate_7d",
+    "hh_rt_jn_floor_rate_7d",
+    "hh_rt_jb_floor_rate_7d"
+  ],
+  "n_dates": 122,
+  "group_by_period": true,
+  "period_groups": {
+    "B_evening": [
+      61,
+      92
+    ],
+    "AC_rest": null
+  },
+  "cv_summary": {
+    "fold_count": 7,
+    "mean_mae": 74.0337,
+    "mean_rmse": 110.356,
+    "mean_mape": 1.346364,
+    "mean_naive_yesterday_mae": 89.9867,
+    "group_mean_mae": {
+      "B_evening": 52.7894,
+      "AC_rest": 84.6559
+    }
+  },
+  "baselines": {
+    "naive_yesterday_same_hh": {
+      "mae": 60.370535714285715,
+      "rmse": 112.25353663958761,
+      "mape": 1.0532762217939298
+    },
+    "naive_lastweek_same_hh": {
+      "mae": 110.42708333333333,
+      "rmse": 162.32173243724506,
+      "mape": 2.3488516645622024
+    }
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "train_days": 60,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-07",
+      "test_date_end": "2025-11-13",
+      "test": {
+        "mae": 49.671382837259166,
+        "rmse": 76.79293349292222,
+        "mape": 0.41393813210895186
+      },
+      "group_detail": {
+        "B_evening": {
+          "mae": 17.442832406992466,
+          "rmse": 30.764202964449407
+        },
+        "AC_rest": {
+          "mae": 65.78565805239252,
+          "rmse": 99.80729875715863
+        }
+      },
+      "naive_yesterday": {
+        "mae": 71.55565476190476,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 1,
+      "train_days": 67,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-14",
+      "test_date_end": "2025-11-20",
+      "test": {
+        "mae": 72.75220430482369,
+        "rmse": 104.19988200678529,
+        "mape": 0.6931757884514186
+      },
+      "group_detail": {
+        "B_evening": {
+          "mae": 26.426452146710034,
+          "rmse": 32.20822545688873
+        },
+        "AC_rest": {
+          "mae": 95.91508038388052,
+          "rmse": 140.19571028173357
+        }
+      },
+      "naive_yesterday": {
+        "mae": 55.648958333333326,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 2,
+      "train_days": 74,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-21",
+      "test_date_end": "2025-11-27",
+      "test": {
+        "mae": 58.01730485655665,
+        "rmse": 88.32788248793717,
+        "mape": 1.0544868630092583
+      },
+      "group_detail": {
+        "B_evening": {
+          "mae": 19.024813793436692,
+          "rmse": 28.136721137516062
+        },
+        "AC_rest": {
+          "mae": 77.51355038811663,
+          "rmse": 118.42346316314773
+        }
+      },
+      "naive_yesterday": {
+        "mae": 59.4657738095238,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 3,
+      "train_days": 81,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-11-28",
+      "test_date_end": "2025-12-04",
+      "test": {
+        "mae": 71.55823017055742,
+        "rmse": 101.38579634016224,
+        "mape": 1.1719795807070819
+      },
+      "group_detail": {
+        "B_evening": {
+          "mae": 27.123516760107066,
+          "rmse": 41.513852339480444
+        },
+        "AC_rest": {
+          "mae": 93.7755868757826,
+          "rmse": 131.32176834050316
+        }
+      },
+      "naive_yesterday": {
+        "mae": 108.06220238095239,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 4,
+      "train_days": 88,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-12-05",
+      "test_date_end": "2025-12-11",
+      "test": {
+        "mae": 87.9797036195721,
+        "rmse": 134.7856762103747,
+        "mape": 2.2400532794652928
+      },
+      "group_detail": {
+        "B_evening": {
+          "mae": 69.24515424956716,
+          "rmse": 123.79008977555962
+        },
+        "AC_rest": {
+          "mae": 97.34697830457458,
+          "rmse": 140.28346942778222
+        }
+      },
+      "naive_yesterday": {
+        "mae": 103.32857142857142,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 5,
+      "train_days": 95,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-12-12",
+      "test_date_end": "2025-12-18",
+      "test": {
+        "mae": 78.61151196683936,
+        "rmse": 121.20438811446893,
+        "mape": 1.5631650774467711
+      },
+      "group_detail": {
+        "B_evening": {
+          "mae": 72.22791602352073,
+          "rmse": 120.03334353071854
+        },
+        "AC_rest": {
+          "mae": 81.80330993849866,
+          "rmse": 121.7899104063441
+        }
+      },
+      "naive_yesterday": {
+        "mae": 120.72232142857142,
+        "rmse": 0,
+        "mape": 0
+      }
+    },
+    {
+      "fold": 6,
+      "train_days": 102,
+      "val_days": 7,
+      "test_days": 7,
+      "test_date_start": "2025-12-19",
+      "test_date_end": "2025-12-25",
+      "test": {
+        "mae": 99.64568181856752,
+        "rmse": 145.79511706363652,
+        "mape": 2.287749810714285
+      },
+      "group_detail": {
+        "B_evening": {
+          "mae": 138.03486902989908,
+          "rmse": 176.95260542095295
+        },
+        "AC_rest": {
+          "mae": 80.45108821290172,
+          "rmse": 130.21637288497828
+        }
+      },
+      "naive_yesterday": {
+        "mae": 111.12351190476188,
+        "rmse": 0,
+        "mape": 0
+      }
+    }
+  ]
+}
