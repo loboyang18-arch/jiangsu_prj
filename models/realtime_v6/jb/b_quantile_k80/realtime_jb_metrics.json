@@ -1,0 +1,633 @@
+{
+  "region": "jb",
+  "target_col": "price_realtime_jb_final_江北",
+  "mode": "b",
+  "cutoff_hh": 96,
+  "data_rows": 11712,
+  "feature_count": 268,
+  "feature_names": [
+    "hh_index",
+    "da_same_hh",
+    "da_day_mean",
+    "da_day_std",
+    "da_day_min",
+    "da_day_max",
+    "da_rank",
+    "da_diff",
+    "da_floor_rate",
+    "da_spike_rate",
+    "da_day_range",
+    "da_day_median",
+    "da_jn_jn_same_hh",
+    "da_jn_jn_day_mean",
+    "da_jn_nd_jn_same_hh",
+    "da_jn_nd_jn_day_mean",
+    "da_jb_nd_jb_same_hh",
+    "da_jb_nd_jb_day_mean",
+    "bnd_load_forecast_boundary",
+    "bnd_load_forecast_boundary_diff",
+    "bnd_load_forecast_boundary_day_mean",
+    "bnd_load_forecast_boundary_day_std",
+    "bnd_load_forecast_boundary_rank",
+    "bnd_receive_plan_boundary",
+    "bnd_receive_plan_boundary_diff",
+    "bnd_receive_plan_boundary_day_mean",
+    "bnd_receive_plan_boundary_day_std",
+    "bnd_receive_plan_boundary_rank",
+    "bnd_gas_plan_boundary_jb",
+    "bnd_gas_plan_boundary_jb_diff",
+    "bnd_gas_plan_boundary_jb_day_mean",
+    "bnd_gas_plan_boundary_jb_day_std",
+    "bnd_gas_plan_boundary_jb_rank",
+    "bnd_gas_plan_boundary_jn",
+    "bnd_gas_plan_boundary_jn_diff",
+    "bnd_gas_plan_boundary_jn_day_mean",
+    "bnd_gas_plan_boundary_jn_day_std",
+    "bnd_gas_plan_boundary_jn_rank",
+    "bnd_pv_forecast_boundary_jb",
+    "bnd_pv_forecast_boundary_jb_diff",
+    "bnd_pv_forecast_boundary_jb_day_mean",
+    "bnd_pv_forecast_boundary_jb_day_std",
+    "bnd_pv_forecast_boundary_jb_rank",
+    "bnd_pv_forecast_boundary_jn",
+    "bnd_pv_forecast_boundary_jn_diff",
+    "bnd_pv_forecast_boundary_jn_day_mean",
+    "bnd_pv_forecast_boundary_jn_day_std",
+    "bnd_pv_forecast_boundary_jn_rank",
+    "bnd_wind_forecast_boundary_jb",
+    "bnd_wind_forecast_boundary_jb_diff",
+    "bnd_wind_forecast_boundary_jb_day_mean",
+    "bnd_wind_forecast_boundary_jb_day_std",
+    "bnd_wind_forecast_boundary_jb_rank",
+    "bnd_wind_forecast_boundary_jn",
+    "bnd_wind_forecast_boundary_jn_diff",
+    "bnd_wind_forecast_boundary_jn_day_mean",
+    "bnd_wind_forecast_boundary_jn_day_std",
+    "bnd_wind_forecast_boundary_jn_rank",
+    "bnd_reserve_positive",
+    "bnd_reserve_positive_diff",
+    "bnd_reserve_positive_day_mean",
+    "bnd_reserve_positive_day_std",
+    "bnd_reserve_positive_rank",
+    "bnd_reserve_negative",
+    "bnd_reserve_negative_diff",
+    "bnd_reserve_negative_day_mean",
+    "bnd_reserve_negative_day_std",
+    "bnd_reserve_negative_rank",
+    "net_load",
+    "net_load_day_mean",
+    "net_load_day_std",
+    "net_load_rank",
+    "re_penetration",
+    "re_total",
+    "re_total_day_mean",
+    "dow",
+    "month",
+    "is_weekend",
+    "p_jn_jn_dm1_mean",
+    "p_jn_jn_dm1_std",
+    "p_jn_jn_dm1_min",
+    "p_jn_jn_dm1_max",
+    "p_jn_jn_dm1_same_hh",
+    "p_jn_jn_dm1_same_hh_diff",
+    "p_jb_jb_dm1_mean",
+    "p_jb_jb_dm1_std",
+    "p_jb_jb_dm1_min",
+    "p_jb_jb_dm1_max",
+    "p_jb_jb_dm1_same_hh",
+    "p_jb_jb_dm1_same_hh_diff",
+    "p_jn_nd_jn_dm1_mean",
+    "p_jn_nd_jn_dm1_std",
+    "p_jn_nd_jn_dm1_min",
+    "p_jn_nd_jn_dm1_max",
+    "p_jn_nd_jn_dm1_same_hh",
+    "p_jn_nd_jn_dm1_same_hh_diff",
+    "p_jb_nd_jb_dm1_mean",
+    "p_jb_nd_jb_dm1_std",
+    "p_jb_nd_jb_dm1_min",
+    "p_jb_nd_jb_dm1_max",
+    "p_jb_nd_jb_dm1_same_hh",
+    "p_jb_nd_jb_dm1_same_hh_diff",
+    "rt_jn_jn_dm1_mean",
+    "rt_jn_jn_dm1_std",
+    "rt_jn_jn_dm1_min",
+    "rt_jn_jn_dm1_max",
+    "rt_jn_jn_dm1_floor_rate",
+    "rt_jn_jn_dm1_spike_rate",
+    "rt_jn_jn_dm1_same_hh",
+    "rt_jb_jb_dm1_mean",
+    "rt_jb_jb_dm1_std",
+    "rt_jb_jb_dm1_min",
+    "rt_jb_jb_dm1_max",
+    "rt_jb_jb_dm1_floor_rate",
+    "rt_jb_jb_dm1_spike_rate",
+    "rt_jb_jb_dm1_same_hh",
+    "rt_jn_nd_jn_dm1_mean",
+    "rt_jn_nd_jn_dm1_std",
+    "rt_jn_nd_jn_dm1_min",
+    "rt_jn_nd_jn_dm1_max",
+    "rt_jn_nd_jn_dm1_floor_rate",
+    "rt_jn_nd_jn_dm1_spike_rate",
+    "rt_jn_nd_jn_dm1_same_hh",
+    "rt_jb_nd_jb_dm1_mean",
+    "rt_jb_nd_jb_dm1_std",
+    "rt_jb_nd_jb_dm1_min",
+    "rt_jb_nd_jb_dm1_max",
+    "rt_jb_nd_jb_dm1_floor_rate",
+    "rt_jb_nd_jb_dm1_spike_rate",
+    "rt_jb_nd_jb_dm1_same_hh",
+    "dm1_spread_jn_mean",
+    "dm1_spread_jn_std",
+    "dm1_spread_jn_abs_mean",
+    "dm1_spread_jn_same_hh",
+    "dm1_spread_jb_mean",
+    "dm1_spread_jb_std",
+    "dm1_spread_jb_abs_mean",
+    "dm1_spread_jb_same_hh",
+    "load_actual_dm1_mean",
+    "load_actual_dm1_std",
+    "load_actual_dm1_same_hh",
+    "wind_actual_jb_dm1_mean",
+    "wind_actual_jb_dm1_std",
+    "wind_actual_jb_dm1_same_hh",
+    "wind_actual_jn_dm1_mean",
+    "wind_actual_jn_dm1_std",
+    "wind_actual_jn_dm1_same_hh",
+    "pv_actual_jb_dm1_mean",
+    "pv_actual_jb_dm1_std",
+    "pv_actual_jb_dm1_same_hh",
+    "pv_actual_jn_dm1_mean",
+    "pv_actual_jn_dm1_std",
+    "pv_actual_jn_dm1_same_hh",
+    "gas_actual_jb_dm1_mean",
+    "gas_actual_jb_dm1_std",
+    "gas_actual_jb_dm1_same_hh",
+    "gas_actual_jn_dm1_mean",
+    "gas_actual_jn_dm1_std",
+    "gas_actual_jn_dm1_same_hh",
+    "receive_actual_dm1_mean",
+    "receive_actual_dm1_std",
+    "receive_actual_dm1_same_hh",
+    "net_load_actual_dm1_mean",
+    "net_load_actual_dm1_min",
+    "net_load_actual_dm1_same_hh",
+    "re_penetration_actual_dm1",
+    "load_fcst_err_dm1_mean",
+    "re_fcst_err_dm1_mean",
+    "re_fcst_err_dm1_std",
+    "dm1_rt_floor_rate",
+    "dm1_rt_floor_count",
+    "dm1_rt_spike_rate",
+    "dm1_da_floor_rate",
+    "dm1_da_spike_rate",
+    "p_jn_jn_dm2_mean",
+    "p_jn_jn_dm2_std",
+    "p_jn_jn_dm2_min",
+    "p_jn_jn_dm2_max",
+    "p_jn_jn_dm2_same_hh",
+    "p_jn_jn_dm2_same_hh_diff",
+    "p_jb_jb_dm2_mean",
+    "p_jb_jb_dm2_std",
+    "p_jb_jb_dm2_min",
+    "p_jb_jb_dm2_max",
+    "p_jb_jb_dm2_same_hh",
+    "p_jb_jb_dm2_same_hh_diff",
+    "p_jn_nd_jn_dm2_mean",
+    "p_jn_nd_jn_dm2_std",
+    "p_jn_nd_jn_dm2_min",
+    "p_jn_nd_jn_dm2_max",
+    "p_jn_nd_jn_dm2_same_hh",
+    "p_jn_nd_jn_dm2_same_hh_diff",
+    "p_jb_nd_jb_dm2_mean",
+    "p_jb_nd_jb_dm2_std",
+    "p_jb_nd_jb_dm2_min",
+    "p_jb_nd_jb_dm2_max",
+    "p_jb_nd_jb_dm2_same_hh",
+    "p_jb_nd_jb_dm2_same_hh_diff",
+    "rt_jn_jn_dm2_mean",
+    "rt_jn_jn_dm2_std",
+    "rt_jn_jn_dm2_min",
+    "rt_jn_jn_dm2_max",
+    "rt_jn_jn_dm2_floor_rate",
+    "rt_jn_jn_dm2_spike_rate",
+    "rt_jn_jn_dm2_same_hh",
+    "rt_jb_jb_dm2_mean",
+    "rt_jb_jb_dm2_std",
+    "rt_jb_jb_dm2_min",
+    "rt_jb_jb_dm2_max",
+    "rt_jb_jb_dm2_floor_rate",
+    "rt_jb_jb_dm2_spike_rate",
+    "rt_jb_jb_dm2_same_hh",
+    "rt_jn_nd_jn_dm2_mean",
+    "rt_jn_nd_jn_dm2_std",
+    "rt_jn_nd_jn_dm2_min",
+    "rt_jn_nd_jn_dm2_max",
+    "rt_jn_nd_jn_dm2_floor_rate",
+    "rt_jn_nd_jn_dm2_spike_rate",
+    "rt_jn_nd_jn_dm2_same_hh",
+    "rt_jb_nd_jb_dm2_mean",
+    "rt_jb_nd_jb_dm2_std",
+    "rt_jb_nd_jb_dm2_min",
+    "rt_jb_nd_jb_dm2_max",
+    "rt_jb_nd_jb_dm2_floor_rate",
+    "rt_jb_nd_jb_dm2_spike_rate",
+    "rt_jb_nd_jb_dm2_same_hh",
+    "p_jn_jn_3d_avg",
+    "p_jn_jn_3d_trend",
+    "p_jb_jb_3d_avg",
+    "p_jb_jb_3d_trend",
+    "p_jn_nd_jn_3d_avg",
+    "p_jn_nd_jn_3d_trend",
+    "p_jb_nd_jb_3d_avg",
+    "p_jb_nd_jb_3d_trend",
+    "rt_target_3d_avg",
+    "rt_target_3d_trend",
+    "p_jn_jn_dm7_mean",
+    "p_jn_jn_dm7_std",
+    "p_jn_jn_dm7_min",
+    "p_jn_jn_dm7_max",
+    "p_jn_jn_dm7_same_hh",
+    "p_jn_jn_dm7_same_hh_diff",
+    "p_jb_jb_dm7_mean",
+    "p_jb_jb_dm7_std",
+    "p_jb_jb_dm7_min",
+    "p_jb_jb_dm7_max",
+    "p_jb_jb_dm7_same_hh",
+    "p_jb_jb_dm7_same_hh_diff",
+    "p_jn_nd_jn_dm7_mean",
+    "p_jn_nd_jn_dm7_std",
+    "p_jn_nd_jn_dm7_min",
+    "p_jn_nd_jn_dm7_max",
+    "p_jn_nd_jn_dm7_same_hh",
+    "p_jn_nd_jn_dm7_same_hh_diff",
+    "p_jb_nd_jb_dm7_mean",
+    "p_jb_nd_jb_dm7_std",
+    "p_jb_nd_jb_dm7_min",
+    "p_jb_nd_jb_dm7_max",
+    "p_jb_nd_jb_dm7_same_hh",
+    "p_jb_nd_jb_dm7_same_hh_diff",
+    "trend_7d_da_jb",
+    "vol_7d_da_jb",
+    "trend_7d_rt_jb",
+    "vol_7d_rt_jb",
+    "hh_rt_target_floor_rate_7d",
+    "hh_rt_jn_floor_rate_7d",
+    "hh_rt_jb_floor_rate_7d",
+    "hh_da_floor_rate_7d"
+  ],
+  "n_dates": 122,
+  "cv_summary": {
+    "mode": "b",
+    "cutoff_hh": 96,
+    "fold_count": 7,
+    "mean_mae": 73.2237,
+    "mean_rmse": 111.8893,
+    "mean_mape": 0.940374,
+    "mean_naive_dayahead_mae": 99.1411
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "train_days": 60,
+      "test_date_start": "2025-11-07",
+      "test_date_end": "2025-11-13",
+      "test": {
+        "mae": 44.19677779279837,
+        "rmse": 73.33722065315595,
+        "mape": 0.4973076421366919
+      },
+      "horizon_detail": {
+        "hh>16": {
+          "mae": 50.612872330762784,
+          "rmse": 82.45313732383724,
+          "mape": 0.6651331916324161
+        },
+        "hh>32": {
+          "mae": 54.26256990304497,
+          "rmse": 88.58629743565557,
+          "mape": 0.691216724611037
+        },
+        "hh>48": {
+          "mae": 39.170552729544546,
+          "rmse": 60.91256846683596,
+          "mape": 0.36851907388173033
+        },
+        "hh>64": {
+          "mae": 23.644684225958734,
+          "rmse": 34.92076993836372,
+          "mape": 0.07996456982052942
+        },
+        "hh>80": {
+          "mae": 28.035998985430606,
+          "rmse": 41.503590361997894,
+          "mape": 0.10359541415789943
+        }
+      },
+      "naive_dayahead": {
+        "mae": 85.05470238095238,
+        "rmse": 138.2018099728144,
+        "mape": 0.8684584781147118
+      },
+      "quantile_params": {
+        "floor_q10_threshold": 100.0,
+        "floor_blend_weight": 1.0,
+        "uncertainty_threshold": 150.0,
+        "naive_weight": 0.4
+      }
+    },
+    {
+      "fold": 1,
+      "train_days": 67,
+      "test_date_start": "2025-11-14",
+      "test_date_end": "2025-11-20",
+      "test": {
+        "mae": 56.23136320045903,
+        "rmse": 80.80252098562376,
+        "mape": 0.5668860213448855
+      },
+      "horizon_detail": {
+        "hh>16": {
+          "mae": 63.9684526720324,
+          "rmse": 91.49857256294864,
+          "mape": 0.6720481640581123
+        },
+        "hh>32": {
+          "mae": 63.59863448927441,
+          "rmse": 89.61391717493272,
+          "mape": 0.7726104701479798
+        },
+        "hh>48": {
+          "mae": 52.19323568697124,
+          "rmse": 74.9412981479524,
+          "mape": 0.5094941322136267
+        },
+        "hh>64": {
+          "mae": 38.313800434171824,
+          "rmse": 48.339981050112726,
+          "mape": 0.16357121480467948
+        },
+        "hh>80": {
+          "mae": 36.02633876036846,
+          "rmse": 49.30566309565709,
+          "mape": 0.19698279304056363
+        }
+      },
+      "naive_dayahead": {
+        "mae": 99.12404761904763,
+        "rmse": 153.18357991234538,
+        "mape": 1.3183550466574898
+      },
+      "quantile_params": {
+        "floor_q10_threshold": 130.0,
+        "floor_blend_weight": 1.0,
+        "uncertainty_threshold": 150.0,
+        "naive_weight": 0.0
+      }
+    },
+    {
+      "fold": 2,
+      "train_days": 74,
+      "test_date_start": "2025-11-21",
+      "test_date_end": "2025-11-27",
+      "test": {
+        "mae": 75.0664225947814,
+        "rmse": 118.63440768517707,
+        "mape": 0.8321469274763765
+      },
+      "horizon_detail": {
+        "hh>16": {
+          "mae": 81.5710157531626,
+          "rmse": 127.12072986566082,
+          "mape": 0.8827752713130791
+        },
+        "hh>32": {
+          "mae": 90.19269680162496,
+          "rmse": 135.60364272261327,
+          "mape": 0.9794917734953915
+        },
+        "hh>48": {
+          "mae": 68.4598036158306,
+          "rmse": 107.05789869135697,
+          "mape": 0.7043030543732369
+        },
+        "hh>64": {
+          "mae": 47.19520623226083,
+          "rmse": 81.15446704850454,
+          "mape": 0.5794810882953209
+        },
+        "hh>80": {
+          "mae": 57.60064963739478,
+          "rmse": 95.93629529667948,
+          "mape": 0.8784891218883334
+        }
+      },
+      "naive_dayahead": {
+        "mae": 100.41083333333334,
+        "rmse": 152.2745323108109,
+        "mape": 1.326582978284961
+      },
+      "quantile_params": {
+        "floor_q10_threshold": 130.0,
+        "floor_blend_weight": 1.0,
+        "uncertainty_threshold": 150.0,
+        "naive_weight": 0.4
+      }
+    },
+    {
+      "fold": 3,
+      "train_days": 81,
+      "test_date_start": "2025-11-28",
+      "test_date_end": "2025-12-04",
+      "test": {
+        "mae": 54.84954529954358,
+        "rmse": 95.38555522640316,
+        "mape": 0.3585280653890514
+      },
+      "horizon_detail": {
+        "hh>16": {
+          "mae": 66.31294729621722,
+          "rmse": 111.73883891338657,
+          "mape": 0.53015374039872
+        },
+        "hh>32": {
+          "mae": 53.30305513786124,
+          "rmse": 94.8175338414101,
+          "mape": 0.35664848947513966
+        },
+        "hh>48": {
+          "mae": 57.65760214981841,
+          "rmse": 92.22694894405359,
+          "mape": 0.28788525722387937
+        },
+        "hh>64": {
+          "mae": 33.16554218448344,
+          "rmse": 59.75058596573523,
+          "mape": 0.14838362789630352
+        },
+        "hh>80": {
+          "mae": 38.66233164220052,
+          "rmse": 73.682204792113,
+          "mape": 0.14013529347736706
+        }
+      },
+      "naive_dayahead": {
+        "mae": 101.79559523809525,
+        "rmse": 160.31129482977798,
+        "mape": 1.0731635203394612
+      },
+      "quantile_params": {
+        "floor_q10_threshold": 100.0,
+        "floor_blend_weight": 0.4,
+        "uncertainty_threshold": 150.0,
+        "naive_weight": 0.4
+      }
+    },
+    {
+      "fold": 4,
+      "train_days": 88,
+      "test_date_start": "2025-12-05",
+      "test_date_end": "2025-12-11",
+      "test": {
+        "mae": 100.64166139688352,
+        "rmse": 140.32156893663418,
+        "mape": 0.6454157951256182
+      },
+      "horizon_detail": {
+        "hh>16": {
+          "mae": 107.56887686689907,
+          "rmse": 144.78189932399508,
+          "mape": 0.7126339396329673
+        },
+        "hh>32": {
+          "mae": 107.87685144549694,
+          "rmse": 147.93176933594816,
+          "mape": 0.7421037300792218
+        },
+        "hh>48": {
+          "mae": 104.66107792153161,
+          "rmse": 141.19557167672576,
+          "mape": 0.5598752099724991
+        },
+        "hh>64": {
+          "mae": 70.7039200009722,
+          "rmse": 115.20637304698523,
+          "mape": 0.4251828160161029
+        },
+        "hh>80": {
+          "mae": 84.8820570702304,
+          "rmse": 129.0516566851054,
+          "mape": 0.6196610464528476
+        }
+      },
+      "naive_dayahead": {
+        "mae": 82.92642857142857,
+        "rmse": 145.0034000832887,
+        "mape": 1.2613432004618603
+      },
+      "quantile_params": {
+        "floor_q10_threshold": 80.0,
+        "floor_blend_weight": 0.4,
+        "uncertainty_threshold": 150.0,
+        "naive_weight": 0.4
+      }
+    },
+    {
+      "fold": 5,
+      "train_days": 95,
+      "test_date_start": "2025-12-12",
+      "test_date_end": "2025-12-18",
+      "test": {
+        "mae": 92.151461808503,
+        "rmse": 138.06600603515108,
+        "mape": 2.4482505908230103
+      },
+      "horizon_detail": {
+        "hh>16": {
+          "mae": 94.24246293563807,
+          "rmse": 138.4118085540888,
+          "mape": 2.561622449010976
+        },
+        "hh>32": {
+          "mae": 97.21725596676585,
+          "rmse": 142.75118234108538,
+          "mape": 2.696806593532909
+        },
+        "hh>48": {
+          "mae": 93.32273324723208,
+          "rmse": 140.01912953022784,
+          "mape": 2.5384837593321765
+        },
+        "hh>64": {
+          "mae": 76.41517849255486,
+          "rmse": 124.71633244824866,
+          "mape": 1.7074088291266725
+        },
+        "hh>80": {
+          "mae": 89.39203185548534,
+          "rmse": 136.77788308203725,
+          "mape": 2.0981513069087683
+        }
+      },
+      "naive_dayahead": {
+        "mae": 119.81708333333334,
+        "rmse": 169.03048413075138,
+        "mape": 1.8108204491040447
+      },
+      "quantile_params": {
+        "floor_q10_threshold": 50.0,
+        "floor_blend_weight": 0.4,
+        "uncertainty_threshold": 150.0,
+        "naive_weight": 0.0
+      }
+    },
+    {
+      "fold": 6,
+      "train_days": 102,
+      "test_date_start": "2025-12-19",
+      "test_date_end": "2025-12-25",
+      "test": {
+        "mae": 89.4286712866221,
+        "rmse": 136.67810643883493,
+        "mape": 1.2340803283045099
+      },
+      "horizon_detail": {
+        "hh>16": {
+          "mae": 87.52579105373286,
+          "rmse": 133.24307296933398,
+          "mape": 1.1437746344569535
+        },
+        "hh>32": {
+          "mae": 98.82849162184337,
+          "rmse": 145.71699441955215,
+          "mape": 1.2746721906432603
+        },
+        "hh>48": {
+          "mae": 94.52272059214903,
+          "rmse": 141.1140876557285,
+          "mape": 1.202390314797233
+        },
+        "hh>64": {
+          "mae": 76.99758655261607,
+          "rmse": 126.06227805874644,
+          "mape": 1.4474445349441012
+        },
+        "hh>80": {
+          "mae": 70.9238126616146,
+          "rmse": 122.42657501501701,
+          "mape": 1.1915829754299363
+        }
+      },
+      "naive_dayahead": {
+        "mae": 104.85892857142858,
+        "rmse": 155.28506466986389,
+        "mape": 1.8195229828255077
+      },
+      "quantile_params": {
+        "floor_q10_threshold": 50.0,
+        "floor_blend_weight": 1.0,
+        "uncertainty_threshold": 150.0,
+        "naive_weight": 0.2
+      }
+    }
+  ]
+}

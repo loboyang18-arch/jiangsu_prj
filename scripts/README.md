@@ -18,6 +18,7 @@
 | 7 | `notebook_env_smoke_test.py` | Notebook 环境快速自检（版本 + Parquet 读取） |
 | 8 | `run_price_forecast.py` | 按配置一键执行电价预测 V1（特征工程 + 回测训练 + 汇总） |
 | **9** | **`train_dayahead.py`** | **核心模型：日前价格预测 V2-V7，含分位数回归、两阶段分类、自适应 Naive 混合** |
+| **10** | **`train_realtime.py`** | **核心模型：实时价格预测，支持 Mode A1/A2/B 三种预测模式** |
 
 ---
 
@@ -271,5 +272,30 @@ python scripts/notebook_env_smoke_test.py
 - **用法示例**：
   ```bash
   python train_dayahead.py --region jn --model-version v5_anb_only --model-type quantile_hybrid --anb-blend --top-k 100
+  ```
+- **依赖**：pandas, numpy, lightgbm, scikit-learn, matplotlib
+
+---
+
+## 10. train_realtime.py（实时价格预测）
+
+- **用途**：实时电价预测核心模型脚本，支持三种预测模式。
+- **主要功能**：
+  - **Mode A1 (D-1 17:00)**：日前出清后预测 D 日实时价，D-1 实时价截断至 hh 64
+  - **Mode A2 (D-1 24:00)**：D-1 结束后预测，D-1 实时价全量可用
+  - **Mode B (D 日滚动)**：每小时更新，利用已出清 D 日实时价
+  - 核心特征：D 日日前出清价（锚点）+ boundary + 历史日前/实时价 + 价差 + actual 外生
+  - 通过 `cutoff_hh` 参数统一控制 D-1 实时价截断，防止信息泄露
+  - 模型架构：LightGBM 回归 / Two-stage / 分位数回归 / 全优化组合
+  - Expanding-window 时序 CV，与日前模型一致
+- **用法示例**：
+  ```bash
+  # Mode A1 分位数
+  python train_realtime.py --input-parquet warehouse/feature_ready/V0/power_market_feature_ready_wide.parquet \
+    --region jn --mode a1 --quantile --dynamic-floor-value --output-dir models/realtime_v3/jn/a1
+
+  # Mode B 滚动预测
+  python train_realtime.py --input-parquet warehouse/feature_ready/V0/power_market_feature_ready_wide.parquet \
+    --region jn --mode b --step-hours 4 --output-dir models/realtime_v1/jn/b
   ```
 - **依赖**：pandas, numpy, lightgbm, scikit-learn, matplotlib

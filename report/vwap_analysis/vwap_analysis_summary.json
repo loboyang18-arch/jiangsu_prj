@@ -1,0 +1,616 @@
+{
+  "vwap_monthly": {
+    "JN": [
+      {
+        "month": "2025-09",
+        "days": 30,
+        "total_gwh": 70584.52695,
+        "da_simple_avg": 351.10538194444445,
+        "da_vwap": 354.12181657218713,
+        "rt_simple_avg": 372.3917361111111,
+        "rt_vwap": 377.64007539697053,
+        "da_total_revenue_m": 24995.5209054225,
+        "rt_total_revenue_m": 26655.5460792575
+      },
+      {
+        "month": "2025-10",
+        "days": 31,
+        "total_gwh": 62137.579307500004,
+        "da_simple_avg": 330.8679435483871,
+        "da_vwap": 334.9260962329089,
+        "rt_simple_avg": 361.04650537634404,
+        "rt_vwap": 370.4311484154286,
+        "da_total_revenue_m": 20811.496866823752,
+        "rt_total_revenue_m": 23017.694862632
+      },
+      {
+        "month": "2025-11",
+        "days": 30,
+        "total_gwh": 58674.094325000005,
+        "da_simple_avg": 297.5243402777778,
+        "da_vwap": 302.2298685252437,
+        "rt_simple_avg": 294.46958333333333,
+        "rt_vwap": 299.8270360634578,
+        "da_total_revenue_m": 17733.0638136825,
+        "rt_total_revenue_m": 17592.0797951725
+      },
+      {
+        "month": "2025-12",
+        "days": 31,
+        "total_gwh": 65376.35185,
+        "da_simple_avg": 199.72365591397852,
+        "da_vwap": 206.3411068589628,
+        "rt_simple_avg": 162.47305107526878,
+        "rt_vwap": 166.90081076109328,
+        "da_total_revenue_m": 13489.828803130002,
+        "rt_total_revenue_m": 10911.366128367501
+      }
+    ],
+    "JB": [
+      {
+        "month": "2025-09",
+        "days": 30,
+        "total_gwh": 70584.52695,
+        "da_simple_avg": 339.7380555555556,
+        "da_vwap": 343.1611347100627,
+        "rt_simple_avg": 358.30350694444445,
+        "rt_vwap": 363.32589661125434,
+        "da_total_revenue_m": 24221.866361135002,
+        "rt_total_revenue_m": 25645.18654099
+      },
+      {
+        "month": "2025-10",
+        "days": 31,
+        "total_gwh": 62137.579307500004,
+        "da_simple_avg": 315.2585685483871,
+        "da_vwap": 319.87847633942846,
+        "rt_simple_avg": 351.15315860215054,
+        "rt_vwap": 359.49472962548344,
+        "da_total_revenue_m": 19876.4741923035,
+        "rt_total_revenue_m": 22338.13227273175
+      },
+      {
+        "month": "2025-11",
+        "days": 30,
+        "total_gwh": 58674.094325000005,
+        "da_simple_avg": 285.99642361111114,
+        "da_vwap": 291.796361892289,
+        "rt_simple_avg": 279.67541666666665,
+        "rt_vwap": 289.13053106593475,
+        "da_total_revenue_m": 17120.88726136,
+        "rt_total_revenue_m": 16964.472052
+      },
+      {
+        "month": "2025-12",
+        "days": 31,
+        "total_gwh": 65376.35185,
+        "da_simple_avg": 182.1440860215054,
+        "da_vwap": 185.59804663790675,
+        "rt_simple_avg": 180.89180107526883,
+        "rt_vwap": 183.97651948316843,
+        "da_total_revenue_m": 12133.7231996725,
+        "rt_total_revenue_m": 12027.71366987
+      }
+    ]
+  },
+  "floor_shares": {
+    "JN": [
+      {
+        "month": "2025-09",
+        "type": "DA",
+        "time_share_floor": 0.02673611111111111,
+        "energy_share_floor": 0.02283785724230882,
+        "revenue_share_floor": 0.0020838342833335555,
+        "time_share_spike": 0.13402777777777777,
+        "energy_share_spike": 0.13681948462785581,
+        "revenue_share_spike": 0.17952937102158978,
+        "floor_avg_load_gw": 83.74022597402596,
+        "normal_avg_load_gw": 98.16332478278858
+      },
+      {
+        "month": "2025-09",
+        "type": "RT",
+        "time_share_floor": 0.0375,
+        "energy_share_floor": 0.032636657062699206,
+        "revenue_share_floor": 0.002617977894356605,
+        "time_share_spike": 0.15729166666666666,
+        "energy_share_spike": 0.16322980152805286,
+        "revenue_share_spike": 0.2673012445666793,
+        "floor_avg_load_gw": 85.3201111111111,
+        "normal_avg_load_gw": 97.90320935748167
+      },
+      {
+        "month": "2025-10",
+        "type": "DA",
+        "time_share_floor": 0.055443548387096774,
+        "energy_share_floor": 0.05010820222963188,
+        "revenue_share_floor": 0.004496847568023256,
+        "time_share_spike": 0.11491935483870967,
+        "energy_share_spike": 0.12180116584597124,
+        "revenue_share_spike": 0.17214014540633374,
+        "floor_avg_load_gw": 75.48127006060605,
+        "normal_avg_load_gw": 83.36257159173753
+      },
+      {
+        "month": "2025-10",
+        "type": "RT",
+        "time_share_floor": 0.09711021505376344,
+        "energy_share_floor": 0.08635638505396888,
+        "revenue_share_floor": 0.0069922829522467795,
+        "time_share_spike": 0.16834677419354838,
+        "energy_share_spike": 0.18313544073202226,
+        "revenue_share_spike": 0.3409524462952722,
+        "floor_avg_load_gw": 74.26957404844289,
+        "normal_avg_load_gw": 83.05948693504118
+      },
+      {
+        "month": "2025-11",
+        "type": "DA",
+        "time_share_floor": 0.09722222222222222,
+        "energy_share_floor": 0.08589855937243733,
+        "revenue_share_floor": 0.009095681301589203,
+        "time_share_spike": 0.03993055555555555,
+        "energy_share_spike": 0.04136364230109487,
+        "revenue_share_spike": 0.05746695531097161,
+        "floor_avg_load_gw": 72.00028821428573,
+        "normal_avg_load_gw": 82.42591533199194
+      },
+      {
+        "month": "2025-11",
+        "type": "RT",
+        "time_share_floor": 0.1371527777777778,
+        "energy_share_floor": 0.12216613238708053,
+        "revenue_share_floor": 0.012535517856905992,
+        "time_share_spike": 0.06388888888888888,
+        "energy_share_spike": 0.06563816441149643,
+        "revenue_share_spike": 0.12877582418163913,
+        "floor_avg_load_gw": 72.58721189873418,
+        "normal_avg_load_gw": 82.84197705345503
+      },
+      {
+        "month": "2025-12",
+        "type": "DA",
+        "time_share_floor": 0.3961693548387097,
+        "energy_share_floor": 0.37870132202857076,
+        "revenue_share_floor": 0.05724325288292973,
+        "time_share_spike": 0.0003360215053763441,
+        "energy_share_spike": 0.00033692649370431336,
+        "revenue_share_spike": 0.0009797170292430608,
+        "floor_avg_load_gw": 83.9969834605598,
+        "normal_avg_load_gw": 90.41473040089086
+      },
+      {
+        "month": "2025-12",
+        "type": "RT",
+        "time_share_floor": 0.4754704301075269,
+        "energy_share_floor": 0.46240831041415775,
+        "revenue_share_floor": 0.08497157431914679,
+        "time_share_spike": 0.0,
+        "energy_share_spike": 0.0,
+        "revenue_share_spike": 0.0,
+        "floor_avg_load_gw": 85.45743717314488,
+        "normal_avg_load_gw": 90.05966290839207
+      },
+      {
+        "month": "全量",
+        "type": "DA",
+        "time_share_floor": 0.14523565573770492,
+        "energy_share_floor": 0.13445258250129968,
+        "revenue_share_floor": 0.014009734991114362,
+        "time_share_spike": 0.07206284153005464,
+        "energy_share_spike": 0.0766233356763164,
+        "revenue_share_spike": 0.11816456228522847,
+        "floor_avg_load_gw": 81.18455682539683,
+        "normal_avg_load_gw": 88.39273488164066
+      },
+      {
+        "month": "全量",
+        "type": "RT",
+        "time_share_floor": 0.18843920765027322,
+        "energy_share_floor": 0.17551788488704398,
+        "revenue_share_floor": 0.01763200398183601,
+        "time_share_spike": 0.09716530054644809,
+        "energy_share_spike": 0.1041869580454189,
+        "revenue_share_spike": 0.22050607769357908,
+        "floor_avg_load_gw": 81.68223887630266,
+        "normal_avg_load_gw": 88.4197566559101
+      }
+    ],
+    "JB": [
+      {
+        "month": "2025-09",
+        "type": "DA",
+        "time_share_floor": 0.04583333333333333,
+        "energy_share_floor": 0.03981249958635587,
+        "revenue_share_floor": 0.003623448972777149,
+        "time_share_spike": 0.04791666666666667,
+        "energy_share_spike": 0.05059700906587998,
+        "revenue_share_spike": 0.06755868706346545,
+        "floor_avg_load_gw": 85.15595303030302,
+        "normal_avg_load_gw": 98.39542459770115
+      },
+      {
+        "month": "2025-09",
+        "type": "RT",
+        "time_share_floor": 0.07256944444444445,
+        "energy_share_floor": 0.06364933001792965,
+        "revenue_share_floor": 0.005394696634449175,
+        "time_share_spike": 0.11284722222222222,
+        "energy_share_spike": 0.1212925111910805,
+        "revenue_share_spike": 0.19413929875494296,
+        "floor_avg_load_gw": 85.98388229665072,
+        "normal_avg_load_gw": 98.09120984654732
+      },
+      {
+        "month": "2025-10",
+        "type": "DA",
+        "time_share_floor": 0.07560483870967742,
+        "energy_share_floor": 0.0674400770709489,
+        "revenue_share_floor": 0.006556286720381246,
+        "time_share_spike": 0.04334677419354839,
+        "energy_share_spike": 0.047079292999540855,
+        "revenue_share_spike": 0.07453771443258178,
+        "floor_avg_load_gw": 74.49890022222222,
+        "normal_avg_load_gw": 83.93840254385964
+      },
+      {
+        "month": "2025-10",
+        "type": "RT",
+        "time_share_floor": 0.08870967741935484,
+        "energy_share_floor": 0.07652247606024913,
+        "revenue_share_floor": 0.006451180441612498,
+        "time_share_spike": 0.11391129032258064,
+        "energy_share_spike": 0.12371453491868069,
+        "revenue_share_spike": 0.2522769437461721,
+        "floor_avg_load_gw": 72.04426401515153,
+        "normal_avg_load_gw": 83.7679496965866
+      },
+      {
+        "month": "2025-11",
+        "type": "DA",
+        "time_share_floor": 0.10902777777777778,
+        "energy_share_floor": 0.09313050866592988,
+        "revenue_share_floor": 0.009962062163970558,
+        "time_share_spike": 0.008333333333333333,
+        "energy_share_spike": 0.00853536821933723,
+        "revenue_share_spike": 0.01227644310814205,
+        "floor_avg_load_gw": 69.60953184713375,
+        "normal_avg_load_gw": 82.94089862313139
+      },
+      {
+        "month": "2025-11",
+        "type": "RT",
+        "time_share_floor": 0.171875,
+        "energy_share_floor": 0.14574100501039133,
+        "revenue_share_floor": 0.015428904357158714,
+        "time_share_spike": 0.05659722222222222,
+        "energy_share_spike": 0.058892637624023525,
+        "revenue_share_spike": 0.1188988600141672,
+        "floor_avg_load_gw": 69.1007795959596,
+        "normal_avg_load_gw": 84.00972218721873
+      },
+      {
+        "month": "2025-12",
+        "type": "DA",
+        "time_share_floor": 0.426747311827957,
+        "energy_share_floor": 0.41348963516690934,
+        "revenue_share_floor": 0.06862753815024193,
+        "time_share_spike": 0.0,
+        "energy_share_spike": 0.0,
+        "revenue_share_spike": 0.0,
+        "floor_avg_load_gw": 85.14155551181102,
+        "normal_avg_load_gw": 89.90365293083237
+      },
+      {
+        "month": "2025-12",
+        "type": "RT",
+        "time_share_floor": 0.43514784946236557,
+        "energy_share_floor": 0.42361787582676197,
+        "revenue_share_floor": 0.07029074145532414,
+        "time_share_spike": 0.0,
+        "energy_share_spike": 0.0,
+        "revenue_share_spike": 0.0,
+        "floor_avg_load_gw": 85.54313915057915,
+        "normal_avg_load_gw": 89.66510541344437
+      },
+      {
+        "month": "全量",
+        "type": "DA",
+        "time_share_floor": 0.16572745901639344,
+        "energy_share_floor": 0.15382291190520858,
+        "revenue_share_floor": 0.01665031111466876,
+        "time_share_spike": 0.024846311475409836,
+        "energy_share_spike": 0.02725199475648594,
+        "revenue_share_spike": 0.04537142676953692,
+        "floor_avg_load_gw": 81.39619106130861,
+        "normal_avg_load_gw": 88.72467783438819
+      },
+      {
+        "month": "全量",
+        "type": "RT",
+        "time_share_floor": 0.19322062841530055,
+        "energy_share_floor": 0.17717389035169262,
+        "revenue_share_floor": 0.018052956723751824,
+        "time_share_spike": 0.07061133879781421,
+        "energy_share_spike": 0.07673782979658546,
+        "revenue_share_spike": 0.16409363906351038,
+        "floor_avg_load_gw": 80.41253566062748,
+        "normal_avg_load_gw": 88.87728692066807
+      }
+    ]
+  },
+  "netload_cond": {
+    "JN": [
+      {
+        "bin": "Q0-Q10",
+        "nl_range_gw": "39.9~61.3",
+        "samples": 1172,
+        "da_vwap": 211.14262631115594,
+        "rt_vwap": 179.7071664636862,
+        "da_floor_rate": 0.3438566552901024,
+        "rt_floor_rate": 0.4590443686006826
+      },
+      {
+        "bin": "Q10-Q25",
+        "nl_range_gw": "61.3~71.0",
+        "samples": 1756,
+        "da_vwap": 214.74950814631242,
+        "rt_vwap": 210.62940835424087,
+        "da_floor_rate": 0.3200455580865604,
+        "rt_floor_rate": 0.38325740318906604
+      },
+      {
+        "bin": "Q25-Q50",
+        "nl_range_gw": "71.0~80.4",
+        "samples": 2928,
+        "da_vwap": 278.22836752532936,
+        "rt_vwap": 273.28981351008827,
+        "da_floor_rate": 0.16598360655737704,
+        "rt_floor_rate": 0.20218579234972678
+      },
+      {
+        "bin": "Q50-Q75",
+        "nl_range_gw": "80.4~89.0",
+        "samples": 2928,
+        "da_vwap": 322.4346832355267,
+        "rt_vwap": 323.9815139532492,
+        "da_floor_rate": 0.06284153005464481,
+        "rt_floor_rate": 0.09221311475409837
+      },
+      {
+        "bin": "Q75-Q90",
+        "nl_range_gw": "89.0~96.4",
+        "samples": 1756,
+        "da_vwap": 355.85629300541234,
+        "rt_vwap": 364.3776108965045,
+        "da_floor_rate": 0.03189066059225513,
+        "rt_floor_rate": 0.0683371298405467
+      },
+      {
+        "bin": "Q90-Q100",
+        "nl_range_gw": "96.4~127.7",
+        "samples": 1172,
+        "da_vwap": 370.7914182806289,
+        "rt_vwap": 426.7807249630096,
+        "da_floor_rate": 0.008532423208191127,
+        "rt_floor_rate": 0.011945392491467578
+      }
+    ],
+    "JB": [
+      {
+        "bin": "Q0-Q10",
+        "nl_range_gw": "39.9~61.3",
+        "samples": 1172,
+        "da_vwap": 173.19634680154059,
+        "rt_vwap": 135.97157896819826,
+        "da_floor_rate": 0.44197952218430037,
+        "rt_floor_rate": 0.606655290102389
+      },
+      {
+        "bin": "Q10-Q25",
+        "nl_range_gw": "61.3~71.0",
+        "samples": 1756,
+        "da_vwap": 218.97850843823724,
+        "rt_vwap": 213.8505417370177,
+        "da_floor_rate": 0.3308656036446469,
+        "rt_floor_rate": 0.34851936218678814
+      },
+      {
+        "bin": "Q25-Q50",
+        "nl_range_gw": "71.0~80.4",
+        "samples": 2928,
+        "da_vwap": 276.50278926707705,
+        "rt_vwap": 285.2420857212683,
+        "da_floor_rate": 0.1680327868852459,
+        "rt_floor_rate": 0.18101092896174864
+      },
+      {
+        "bin": "Q50-Q75",
+        "nl_range_gw": "80.4~89.0",
+        "samples": 2928,
+        "da_vwap": 304.33493195935273,
+        "rt_vwap": 324.3928700464916,
+        "da_floor_rate": 0.0782103825136612,
+        "rt_floor_rate": 0.09255464480874318
+      },
+      {
+        "bin": "Q75-Q90",
+        "nl_range_gw": "89.0~96.4",
+        "samples": 1756,
+        "da_vwap": 321.16434879884787,
+        "rt_vwap": 344.5876263935814,
+        "da_floor_rate": 0.06435079726651481,
+        "rt_floor_rate": 0.07403189066059225
+      },
+      {
+        "bin": "Q90-Q100",
+        "nl_range_gw": "96.4~127.7",
+        "samples": 1172,
+        "da_vwap": 361.6772587979875,
+        "rt_vwap": 415.1331466585322,
+        "da_floor_rate": 0.006825938566552901,
+        "rt_floor_rate": 0.007679180887372013
+      }
+    ]
+  },
+  "source_revenue": {
+    "JN": [
+      {
+        "month": "2025-09",
+        "re_gwh": 4175.89901,
+        "gas_gwh": 3817.5405467499995,
+        "receive_gwh": 16667.02975,
+        "thermal_residual_gwh": 49741.59819,
+        "re_revenue_m": 1505.00457344575,
+        "gas_revenue_m": 1468.0786410926248,
+        "receive_revenue_m": 6148.761729702499,
+        "total_revenue_m": 26655.5460792575,
+        "re_vwap": 360.40253124937277,
+        "gas_vwap": 384.5613748208777,
+        "re_revenue_share": 0.05646121707545496,
+        "re_energy_share": 0.059161677359658216
+      },
+      {
+        "month": "2025-10",
+        "re_gwh": 6111.57925,
+        "gas_gwh": 3428.44233075,
+        "receive_gwh": 11607.6270225,
+        "thermal_residual_gwh": 44418.373035000004,
+        "re_revenue_m": 1862.1951325574998,
+        "gas_revenue_m": 1306.887658275175,
+        "receive_revenue_m": 4215.57753020125,
+        "total_revenue_m": 23017.694862632,
+        "re_vwap": 304.69949850646213,
+        "gas_vwap": 381.18992014349635,
+        "re_revenue_share": 0.08090276388104677,
+        "re_energy_share": 0.09835560570770951
+      },
+      {
+        "month": "2025-11",
+        "re_gwh": 5680.3222225,
+        "gas_gwh": 3198.3563139999997,
+        "receive_gwh": 10161.053135000002,
+        "thermal_residual_gwh": 42832.718967500005,
+        "re_revenue_m": 1492.51394405825,
+        "gas_revenue_m": 946.4778840598251,
+        "receive_revenue_m": 2958.083372273,
+        "total_revenue_m": 17592.0797951725,
+        "re_vwap": 262.7516337271041,
+        "gas_vwap": 295.92634188906857,
+        "re_revenue_share": 0.08484010767549018,
+        "re_energy_share": 0.09681141716540675
+      },
+      {
+        "month": "2025-12",
+        "re_gwh": 7087.3669500000005,
+        "gas_gwh": 3883.238639,
+        "receive_gwh": 14053.846324999999,
+        "thermal_residual_gwh": 44235.138575000004,
+        "re_revenue_m": 960.1856067795001,
+        "gas_revenue_m": 652.905343723825,
+        "receive_revenue_m": 2303.3176846775,
+        "total_revenue_m": 10911.366128367501,
+        "re_vwap": 135.4784666228549,
+        "gas_vwap": 168.13423135178712,
+        "re_revenue_share": 0.08799866079859588,
+        "re_energy_share": 0.10840872501208554
+      }
+    ],
+    "JB": [
+      {
+        "month": "2025-09",
+        "re_gwh": 4175.89901,
+        "gas_gwh": 3817.5405467499995,
+        "receive_gwh": 16667.02975,
+        "thermal_residual_gwh": 49741.59819,
+        "re_revenue_m": 1411.5506571915002,
+        "gas_revenue_m": 1408.9950779326748,
+        "receive_revenue_m": 5906.117438787501,
+        "total_revenue_m": 25645.18654099,
+        "re_vwap": 338.0231786763205,
+        "gas_vwap": 369.08450890775725,
+        "re_revenue_share": 0.055041543758527454,
+        "re_energy_share": 0.059161677359658216
+      },
+      {
+        "month": "2025-10",
+        "re_gwh": 6111.57925,
+        "gas_gwh": 3428.44233075,
+        "receive_gwh": 11607.6270225,
+        "thermal_residual_gwh": 44418.373035000004,
+        "re_revenue_m": 1834.1812247452501,
+        "gas_revenue_m": 1250.0503253041,
+        "receive_revenue_m": 4124.9743925635,
+        "total_revenue_m": 22338.13227273175,
+        "re_vwap": 300.1157556363603,
+        "gas_vwap": 364.61174046659295,
+        "re_revenue_share": 0.08210987392998127,
+        "re_energy_share": 0.09835560570770951
+      },
+      {
+        "month": "2025-11",
+        "re_gwh": 5680.3222225,
+        "gas_gwh": 3198.3563139999997,
+        "receive_gwh": 10161.053135000002,
+        "thermal_residual_gwh": 42832.718967500005,
+        "re_revenue_m": 1383.0894708925,
+        "gas_revenue_m": 908.2724600416,
+        "receive_revenue_m": 2871.000484532,
+        "total_revenue_m": 16964.472052,
+        "re_vwap": 243.4878545118485,
+        "gas_vwap": 283.9810111418374,
+        "re_revenue_share": 0.08152858908034469,
+        "re_energy_share": 0.09681141716540675
+      },
+      {
+        "month": "2025-12",
+        "re_gwh": 7087.3669500000005,
+        "gas_gwh": 3883.238639,
+        "receive_gwh": 14053.846324999999,
+        "thermal_residual_gwh": 44235.138575000004,
+        "re_revenue_m": 1087.81490702875,
+        "gas_revenue_m": 707.540603584575,
+        "receive_revenue_m": 2524.0733336225,
+        "total_revenue_m": 12027.71366987,
+        "re_vwap": 153.4864660886156,
+        "gas_vwap": 182.20374006341748,
+        "re_revenue_share": 0.09044236809143358,
+        "re_energy_share": 0.10840872501208554
+      }
+    ]
+  },
+  "da_floor_rt": {
+    "JN": {
+      "da_floor_count": 1701,
+      "da_floor_pct": 0.14523565573770492,
+      "da_floor_rt_mean": 90.82533803644917,
+      "da_floor_rt_median": 30.0,
+      "da_floor_rt_also_floor": 0.7448559670781894,
+      "da_floor_rt_over200": 0.18812463256907702,
+      "da_floor_rt_over400": 0.0023515579071134627,
+      "da_floor_rt_da_spread_mean": 59.61363903586126,
+      "da_floor_rt_vwap": 89.72728619269618,
+      "da_floor_energy_share": 0.13445258250129968,
+      "da_floor_rt_revenue_share": 0.03962461159067541,
+      "da_normal_rt_mean": 313.25983418784773,
+      "da_normal_rt_vwap": 317.9921039978754,
+      "da_spike_rt_mean": 536.0284360189573
+    },
+    "JB": {
+      "da_floor_count": 1941,
+      "da_floor_pct": 0.16572745901639344,
+      "da_floor_rt_mean": 102.45816589386914,
+      "da_floor_rt_median": 30.0,
+      "da_floor_rt_also_floor": 0.7161257083977332,
+      "da_floor_rt_over200": 0.2550231839258114,
+      "da_floor_rt_over400": 0.0020607934054611026,
+      "da_floor_rt_da_spread_mean": 71.55167439464194,
+      "da_floor_rt_vwap": 101.87793749840579,
+      "da_floor_energy_share": 0.15382291190520858,
+      "da_floor_rt_revenue_share": 0.052275383384446386,
+      "da_normal_rt_mean": 322.0752004219409,
+      "da_normal_rt_vwap": 327.7510503645711,
+      "da_spike_rt_mean": 579.3845360824743
+    }
+  }
+}
